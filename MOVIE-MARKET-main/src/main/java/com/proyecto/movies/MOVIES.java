@@ -4,7 +4,7 @@
 
 package com.proyecto.movies;
 
-import Administracion.MenuPrincipal;
+import vista.FrmMenuPrincipal;
 
 /**
  *
@@ -13,7 +13,7 @@ import Administracion.MenuPrincipal;
 public class MOVIES {
 
     public static void main(String[] args) {
-        MenuPrincipal m = new MenuPrincipal();
+        FrmMenuPrincipal m = new FrmMenuPrincipal();
         m.setVisible(true);
     }
 
