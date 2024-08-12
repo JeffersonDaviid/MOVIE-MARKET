@@ -12,7 +12,7 @@ public class ConexionMaster {
     private final String url="jdbc:oracle:thin:@//Alejandro:1521/"+base;
     private Connection con=null;
     
-    public Connection getConexion(){
+    public Connection getConexionMaster(){
         try{
             con=DriverManager.getConnection(this.url, this.user, this.password);
         }
