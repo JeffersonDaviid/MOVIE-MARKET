@@ -4,29 +4,42 @@
 
 package com.proyecto.movies;
 
-import controlador.CtrComentario;
-import controlador.CtrDirector;
-import controlador.CtrGenero;
-import controlador.CtrPelicula;
-import controlador.CtrTransaccion;
-import controlador.CtrUsuario;
+import controlador.CtrComentarioMaster;
+import controlador.CtrDirectorMaster;
+import controlador.CtrGeneroMaster;
+import controlador.CtrPeliculaMaster;
+import controlador.CtrTransaccionMaster;
+import controlador.CtrUsuarioMaster;
+import controlador.CtrComentarioReplica;
+import controlador.CtrDirectorReplica;
+import controlador.CtrGeneroReplica;
+import controlador.CtrPeliculaReplica;
+import controlador.CtrTransaccionReplica;
+import controlador.CtrUsuarioReplica;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.FrmInicioSesion;
 import javax.swing.JOptionPane;
-import modelo.Comentario;
-import modelo.DbComentarioMaster;
-import modelo.DbDirectorMaster;
-import modelo.DbGeneroMaster;
-import modelo.DbPeliculaMaster;
-import modelo.DbTransaccionMaster;
-import modelo.DbUsuarioMaster;
-import modelo.Director;
-import modelo.Genero;
-import modelo.Pelicula;
-import modelo.Transaccion;
-import modelo.Usuario;
+import modelo.entities.Comentario;
+import modelo.services.DbComentarioMaster;
+import modelo.services.DbDirectorMaster;
+import modelo.services.DbGeneroMaster;
+import modelo.services.DbPeliculaMaster;
+import modelo.services.DbTransaccionMaster;
+import modelo.services.DbUsuarioMaster;
+import modelo.entities.Director;
+import modelo.entities.Genero;
+import modelo.entities.Pelicula;
+import modelo.entities.Transaccion;
+import modelo.entities.Usuario;
+import modelo.services.DbComentarioReplica;
+import modelo.services.DbDirectorReplica;
+import modelo.services.DbGeneroReplica;
+import modelo.services.DbPeliculaReplica;
+import modelo.services.DbTransaccionReplica;
+import modelo.services.DbUsuarioReplica;
 import vista.FrmMenuMaster;
+import vista.FrmMenuReplica;
 
 /**
  *
@@ -35,9 +48,9 @@ import vista.FrmMenuMaster;
 public class MOVIES {
 
     private static final String USUARIO_MASTER = "master";
-    private static final String CONTRASENA_MASTER = "masterpass";
+    private static final String CONTRASENA_MASTER = "master";
     private static final String USUARIO_REPLICA = "replica";
-    private static final String CONTRASENA_REPLICA = "replicapass";
+    private static final String CONTRASENA_REPLICA = "replica";
     private static final int MAX_INTENTOS = 5;
     private static int intentosFallidos = 0;
 
@@ -56,8 +69,7 @@ public class MOVIES {
                 String contrasena = new String(frmInicioSesion.campoContrasena.getPassword());
                 
                 // Verificar el inicio de sesión
-                //if (usuario.equals(USUARIO_MASTER) && contrasena.equals(CONTRASENA_MASTER)) {
-                if (true) {
+                if (usuario.equals(USUARIO_MASTER) && contrasena.equals(CONTRASENA_MASTER)) {
                     JOptionPane.showMessageDialog(frmInicioSesion, "Inicio de sesión exitoso como MASTER");
                     // Abre la ventana para el usuario MASTER
                     frmInicioSesion.setVisible(false);
@@ -65,7 +77,7 @@ public class MOVIES {
                     
                 } else if (usuario.equals(USUARIO_REPLICA) && contrasena.equals(CONTRASENA_REPLICA)) {
                     JOptionPane.showMessageDialog(frmInicioSesion, "Inicio de sesión exitoso como REPLICA");
-                    // Abre la ventana para el usuario REPLICA
+                    frmInicioSesion.setVisible(false);
                     abrirVentanaReplica();
                     
                 } else {
@@ -82,7 +94,6 @@ public class MOVIES {
     }
 
     private static void abrirVentanaMaster() {
-       
         Director modDirector = new Director();
         DbDirectorMaster modDbDirectorMaster = new DbDirectorMaster();
         
@@ -102,29 +113,54 @@ public class MOVIES {
         DbTransaccionMaster modDbTransaccionMaster = new DbTransaccionMaster();
         
         FrmMenuMaster frmMenuMaster = new FrmMenuMaster();
-        CtrDirector ctrDirector = new CtrDirector(modDirector, modDbDirectorMaster, frmMenuMaster);
+        CtrDirectorMaster ctrDirector = new CtrDirectorMaster(modDirector, modDbDirectorMaster, frmMenuMaster);
         ctrDirector.iniciar();
-        CtrGenero ctrGenero = new CtrGenero(modGenero, modDbGeneroMaster, frmMenuMaster);
+        CtrGeneroMaster ctrGenero = new CtrGeneroMaster(modGenero, modDbGeneroMaster, frmMenuMaster);
         ctrGenero.iniciar();
-        CtrUsuario ctrUsuario = new CtrUsuario(modUsuario, modDbUsuarioMaster, frmMenuMaster);
+        CtrUsuarioMaster ctrUsuario = new CtrUsuarioMaster(modUsuario, modDbUsuarioMaster, frmMenuMaster);
         ctrUsuario.iniciar();
-        CtrPelicula ctrPelicula = new CtrPelicula(modPelicula, modDbPeliculaMaster, frmMenuMaster);
+        CtrPeliculaMaster ctrPelicula = new CtrPeliculaMaster(modPelicula, modDbPeliculaMaster, frmMenuMaster);
         ctrPelicula.iniciar();
-        CtrComentario ctrComentario = new CtrComentario(modComentario, modDbComentarioMaster, frmMenuMaster);
+        CtrComentarioMaster ctrComentario = new CtrComentarioMaster(modComentario, modDbComentarioMaster, frmMenuMaster);
         ctrComentario.iniciar();
-        CtrTransaccion ctrTransaccion = new CtrTransaccion(modTransaccion, modDbTransaccionMaster, frmMenuMaster);
+        CtrTransaccionMaster ctrTransaccion = new CtrTransaccionMaster(modTransaccion, modDbTransaccionMaster, frmMenuMaster);
         ctrTransaccion.iniciar();
-        
-        
-        
         frmMenuMaster.setVisible(true);
         
     }
 
     private static void abrirVentanaReplica() {
-        // Implementa la lógica para abrir la ventana del usuario REPLICA
-        // Por ejemplo:
-        // FrmVentanaReplica ventanaReplica = new FrmVentanaReplica();
-        // ventanaReplica.setVisible(true);
+        Director modDirector = new Director();
+        DbDirectorReplica modDbDirectorReplica = new DbDirectorReplica();
+        
+        Genero modGenero = new Genero();
+        DbGeneroReplica modDbGeneroReplica = new DbGeneroReplica();
+        
+        Usuario modUsuario = new Usuario();
+        DbUsuarioReplica modDbUsuarioReplica = new DbUsuarioReplica();
+        
+        Pelicula modPelicula = new Pelicula();
+        DbPeliculaReplica modDbPeliculaReplica = new DbPeliculaReplica();
+        
+        Comentario modComentario = new Comentario();
+        DbComentarioReplica modDbComentarioReplica = new DbComentarioReplica();
+        
+        Transaccion modTransaccion = new Transaccion();
+        DbTransaccionReplica modDbTransaccionReplica = new DbTransaccionReplica();
+        
+        FrmMenuReplica frmMenuReplica = new FrmMenuReplica();
+        CtrDirectorReplica ctrDirector = new CtrDirectorReplica(modDirector, modDbDirectorReplica, frmMenuReplica);
+        ctrDirector.iniciar();
+        CtrGeneroReplica ctrGenero = new CtrGeneroReplica(modGenero, modDbGeneroReplica, frmMenuReplica);
+        ctrGenero.iniciar();
+        CtrUsuarioReplica ctrUsuario = new CtrUsuarioReplica(modUsuario, modDbUsuarioReplica, frmMenuReplica);
+        ctrUsuario.iniciar();
+        CtrPeliculaReplica ctrPelicula = new CtrPeliculaReplica(modPelicula, modDbPeliculaReplica, frmMenuReplica);
+        ctrPelicula.iniciar();
+        CtrComentarioReplica ctrComentario = new CtrComentarioReplica(modComentario, modDbComentarioReplica, frmMenuReplica);
+        ctrComentario.iniciar();
+        CtrTransaccionReplica ctrTransaccion = new CtrTransaccionReplica(modTransaccion, modDbTransaccionReplica, frmMenuReplica);
+        ctrTransaccion.iniciar();
+        frmMenuReplica.setVisible(true);
     }
 } 

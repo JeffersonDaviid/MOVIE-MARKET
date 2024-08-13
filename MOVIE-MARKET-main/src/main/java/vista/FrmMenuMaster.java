@@ -8,24 +8,24 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import modelo.Comentario;
-import modelo.ComentarioAuditoria;
-import modelo.DbComentarioMaster;
-import modelo.DbDirectorMaster;
-import modelo.DbGeneroMaster;
-import modelo.DbPeliculaMaster;
-import modelo.DbTransaccionMaster;
-import modelo.DbUsuarioMaster;
-import modelo.Director;
-import modelo.DirectorAuditoria;
-import modelo.Genero;
-import modelo.GeneroAuditoria;
-import modelo.Pelicula;
-import modelo.PeliculaAuditoria;
-import modelo.Transaccion;
-import modelo.TransaccionAuditoria;
-import modelo.Usuario;
-import modelo.UsuarioAuditoria;
+import modelo.entities.Comentario;
+import modelo.entities.ComentarioAuditoria;
+import modelo.services.DbComentarioMaster;
+import modelo.services.DbDirectorMaster;
+import modelo.services.DbGeneroMaster;
+import modelo.services.DbPeliculaMaster;
+import modelo.services.DbTransaccionMaster;
+import modelo.services.DbUsuarioMaster;
+import modelo.entities.Director;
+import modelo.entities.DirectorAuditoria;
+import modelo.entities.Genero;
+import modelo.entities.GeneroAuditoria;
+import modelo.entities.Pelicula;
+import modelo.entities.PeliculaAuditoria;
+import modelo.entities.Transaccion;
+import modelo.entities.TransaccionAuditoria;
+import modelo.entities.Usuario;
+import modelo.entities.UsuarioAuditoria;
 
 /**
  *
@@ -2579,8 +2579,8 @@ panelListarUsuarios.repaint(); // Repinta el panel
     jScrollPane16.setViewportView(mostrarAuditoriaPeliculas);
 
     // Asegúrate de que el panelAuditoria sea visible
-    panelAuditoria.revalidate(); // Actualiza el panel
-    panelAuditoria.repaint(); // Repinta el panel
+    panelAuditoriaPelicula.revalidate(); // Actualiza el panel
+    panelAuditoriaPelicula.repaint(); // Repinta el panel
     }//GEN-LAST:event_btnAuditoriaPeliculaActionPerformed
 
     private void txtUsuarioIDEditableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioIDEditableActionPerformed
