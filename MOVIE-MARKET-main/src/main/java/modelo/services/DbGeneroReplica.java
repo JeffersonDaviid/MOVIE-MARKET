@@ -15,7 +15,7 @@ public class DbGeneroReplica extends ConexionReplica{
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConexionReplica();
-        String sql = "SELECT * FROM Generos WHERE nombre=?";
+        String sql = "SELECT * FROM vistaGeneros WHERE nombre=?";
 
         try {
             ps = con.prepareStatement(sql);
@@ -46,7 +46,7 @@ public class DbGeneroReplica extends ConexionReplica{
     PreparedStatement ps;
     ResultSet rs;
     Connection con = getConexionReplica();
-    String sql = "SELECT * FROM Generos";
+    String sql = "SELECT * FROM vistaGeneros";
 
     try {
         ps = con.prepareStatement(sql);
@@ -73,7 +73,7 @@ public class DbGeneroReplica extends ConexionReplica{
 
     public boolean exists(int generoID) {
         // Implementar la lógica para verificar si el generoID existe en la base de datos.
-        String query = "SELECT COUNT(*) FROM Generos WHERE GeneroID = ?";
+        String query = "SELECT COUNT(*) FROM vistaGeneros WHERE GeneroID = ?";
         try (Connection con = getConexionReplica();
              PreparedStatement pst = con.prepareStatement(query)) {
             pst.setInt(1, generoID);

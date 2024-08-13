@@ -15,7 +15,7 @@ public class DbUsuarioReplica extends ConexionReplica {
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConexionReplica();
-        String sql = "SELECT * FROM Usuarios WHERE correo=?";
+        String sql = "SELECT * FROM vistaUsuarios WHERE correo=?";
 
         try {
             ps = con.prepareStatement(sql);
@@ -48,7 +48,7 @@ public class DbUsuarioReplica extends ConexionReplica {
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConexionReplica();
-        String sql = "SELECT * FROM Usuarios";
+        String sql = "SELECT * FROM vistaUsuarios";
 
         try {
             ps = con.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class DbUsuarioReplica extends ConexionReplica {
     
     public boolean exists(int usuarioID) {
     // Implementar la lógica para verificar si el usuarioID existe en la base de datos.
-    String query = "SELECT COUNT(*) FROM Usuarios WHERE UsuarioID = ?";
+    String query = "SELECT COUNT(*) FROM vistaUsuarios WHERE UsuarioID = ?";
     try (Connection con = getConexionReplica();  
          PreparedStatement pst = con.prepareStatement(query)) {
         pst.setInt(1, usuarioID);

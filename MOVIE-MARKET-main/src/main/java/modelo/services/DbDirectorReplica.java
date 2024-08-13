@@ -12,45 +12,11 @@ import modelo.entities.Director;
 public class DbDirectorReplica extends ConexionReplica {
 
 
-    public boolean modificar(Director d) {
-        PreparedStatement ps;
-        Connection con = getConexionReplica();
-        String sql = "UPDATE Directores SET nombre=?, apellido=?, fechaNacimiento=?, paisOrigen=?, premios=?, peliculasDirigidas=?, fechaCreacion=? WHERE directorID=?";
-
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setString(1, d.getNombre());
-            ps.setString(2, d.getApellido());
-            if (d.getFechaNacimiento() != null) {
-                ps.setDate(3, new java.sql.Date(d.getFechaNacimiento().getTime()));
-            } else {
-                ps.setNull(3, java.sql.Types.DATE);
-            }
-            ps.setString(4, d.getPaisOrigen());
-            ps.setInt(5, d.getPremios());
-            ps.setInt(6, d.getPeliculasDirigidas());
-            ps.setDate(7, new java.sql.Date(d.getFechaCreacion().getTime()));
-            ps.setInt(8, d.getDirectorID());
-            ps.execute();
-            return true;
-        } catch (SQLException e) {
-            System.err.println(e);
-            return false;
-        } finally {
-            try {
-                con.close();
-            } catch (SQLException e) {
-                System.err.println(e);
-            }
-        }
-    }
-    
-    
     public boolean buscar(Director d) {
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConexionReplica();
-        String sql = "SELECT * FROM Directores WHERE nombre=? AND apellido=?";
+        String sql = "SELECT * FROM vistaDirectores WHERE nombre=? AND apellido=?";
 
         try {
             ps = con.prepareStatement(sql);
@@ -89,7 +55,7 @@ public class DbDirectorReplica extends ConexionReplica {
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConexionReplica();
-        String sql = "SELECT * FROM Directores";
+        String sql = "SELECT * FROM vistaDirectores";
 
         try {
             ps = con.prepareStatement(sql);
@@ -123,7 +89,7 @@ public class DbDirectorReplica extends ConexionReplica {
     
     public boolean exists(int directorID) {
         // Implementar la lógica para verificar si el directorID existe en la base de datos.
-        String query = "SELECT COUNT(*) FROM Directores WHERE DirectorID = ?";
+        String query = "SELECT COUNT(*) FROM vistaDirectores WHERE DirectorID = ?";
         try (Connection con = getConexionReplica();  
              PreparedStatement pst = con.prepareStatement(query)) {
             pst.setInt(1, directorID);
