@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import modelo.entities.ConexionMaster;
 import modelo.entities.Director;
@@ -132,8 +130,7 @@ public class DbDirectorMaster extends ConexionMaster {
             }
         }
     }
-    
-    
+
     public List<Director> listar() {
         List<Director> directores = new ArrayList<>();
         PreparedStatement ps;
@@ -155,7 +152,7 @@ public class DbDirectorMaster extends ConexionMaster {
                 d.setPremios(rs.getInt("premios"));
                 d.setPeliculasDirigidas(rs.getInt("peliculasDirigidas"));
                 d.setFechaCreacion(rs.getDate("fechaCreacion"));
-                
+
                 directores.add(d);
             }
         } catch (SQLException e) {
@@ -167,51 +164,51 @@ public class DbDirectorMaster extends ConexionMaster {
                 System.err.println(e);
             }
         }
-        
+
         return directores;
     }
-    
-    
+
     public List<DirectorAuditoria> listarAuditoria() {
-    List<DirectorAuditoria> auditoriaList = new ArrayList<>();
-    PreparedStatement ps;
-    ResultSet rs;
-    Connection con = getConexionMaster();
-    String sql = "SELECT * FROM auditoriaDirectores";
+        List<DirectorAuditoria> auditoriaList = new ArrayList<>();
+        PreparedStatement ps;
+        ResultSet rs;
+        Connection con = getConexionMaster();
+        String sql = "SELECT * FROM auditoriaDirectores";
 
-    try {
-        ps = con.prepareStatement(sql);
-        rs = ps.executeQuery();
-
-        while (rs.next()) {
-            DirectorAuditoria a = new DirectorAuditoria();
-            a.setUserName(rs.getString("userName"));
-            a.setFecha(rs.getDate("fecha"));
-            a.setTipoOperacion(rs.getString("tipoOperacion"));
-            a.setNombreTabla(rs.getString("nombreTabla"));
-            a.setAnterior(rs.getString("anterior"));
-            a.setNuevo(rs.getString("nuevo"));
-
-            auditoriaList.add(a);
-        }
-    } catch (SQLException e) {
-        System.err.println(e);
-    } finally {
         try {
-            con.close();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                DirectorAuditoria a = new DirectorAuditoria();
+                a.setUserName(rs.getString("userName"));
+                a.setFecha(rs.getDate("fecha"));
+                a.setTipoOperacion(rs.getString("tipoOperacion"));
+                a.setNombreTabla(rs.getString("nombreTabla"));
+                a.setAnterior(rs.getString("anterior"));
+                a.setNuevo(rs.getString("nuevo"));
+
+                auditoriaList.add(a);
+            }
         } catch (SQLException e) {
             System.err.println(e);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
         }
+
+        return auditoriaList;
     }
-    
-    return auditoriaList;
-}
-    
+
     public boolean exists(int directorID) {
-        // Implementar la lógica para verificar si el directorID existe en la base de datos.
+        // Implementar la lógica para verificar si el directorID existe en la base de
+        // datos.
         String query = "SELECT COUNT(*) FROM Directores WHERE DirectorID = ?";
-        try (Connection con = getConexionMaster();  
-             PreparedStatement pst = con.prepareStatement(query)) {
+        try (Connection con = getConexionMaster();
+                PreparedStatement pst = con.prepareStatement(query)) {
             pst.setInt(1, directorID);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {

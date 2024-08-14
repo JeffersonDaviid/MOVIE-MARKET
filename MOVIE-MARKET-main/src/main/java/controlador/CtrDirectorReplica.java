@@ -3,7 +3,6 @@ package controlador;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import modelo.entities.Director;
-import java.util.Date;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import modelo.services.DbDirectorReplica;

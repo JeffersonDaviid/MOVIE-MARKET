@@ -7,10 +7,8 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import modelo.services.DbGeneroMaster;
 import modelo.entities.Genero;
 import modelo.services.DbGeneroReplica;
-import vista.FrmMenuMaster;
 import vista.FrmMenuReplica;
 
 /**
@@ -52,6 +50,7 @@ public class CtrGeneroReplica implements ActionListener {
             }
         }
     }
+
     public void limpiarActualizar() {
         frm.txtNombreGenero1.setText(null);
     }
