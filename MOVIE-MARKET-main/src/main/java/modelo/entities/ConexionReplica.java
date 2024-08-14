@@ -50,9 +50,9 @@ public class ConexionReplica {
             }
 
             base = props.getProperty("base");
-            user = props.getProperty("master.user");
-            password = props.getProperty("master.password");
-            url = props.getProperty("master.url") + base;
+            user = props.getProperty("replica.user");
+            password = props.getProperty("replica.password");
+            url = props.getProperty("replica.url") + base;
 
             if (user == null || password == null || url == null) {
                 throw new IllegalArgumentException("Algunas propiedades no están configuradas correctamente.");
