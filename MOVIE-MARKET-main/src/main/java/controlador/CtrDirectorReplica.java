@@ -56,6 +56,7 @@ public class CtrDirectorReplica implements ActionListener {
             }
         }
     }
+
     public void limpiarActualizar() {
         frm.txtNombreDirector.setText(null);
         frm.txtApellidoDirector.setText(null);
