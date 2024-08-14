@@ -49,7 +49,7 @@ public class CtrTransaccionReplica implements ActionListener {
             mod.setFechaTransaccion(new Date());
 
             String item = frm.boxTipoTransaccion.getSelectedItem().toString();
-            mod.setTipoTransaccion(item.equals("Compra") ? "compra" : "alquiler");
+            mod.setTipoTransaccion(item.equals("Compra") ? "compra" : item.equals("Alquiler") ? "alquiler" : "");
 
             if (modDb.guardar(mod)) {
                 JOptionPane.showMessageDialog(null, "Transacción registrada");
@@ -113,7 +113,7 @@ public class CtrTransaccionReplica implements ActionListener {
                 mod.setFechaTransaccion(new Date());
 
                 String item = frm.boxTipoTransaccionEditable.getSelectedItem().toString();
-                mod.setTipoTransaccion(item.equals("Compra") ? "compra" : "alquiler");
+                mod.setTipoTransaccion(item.equals("Compra") ? "compra" : item.equals("Alquiler") ? "alquiler" : "");
 
                 if (modDb.modificar(mod)) {
                     JOptionPane.showMessageDialog(null, "Transacción actualizada");
