@@ -116,7 +116,7 @@ public class DbUsuarioMaster extends ConexionMaster {
             }
         }
     }
-    
+
     public List<Usuario> listar() {
         List<Usuario> usuarios = new ArrayList<>();
         PreparedStatement ps;
@@ -149,15 +149,14 @@ public class DbUsuarioMaster extends ConexionMaster {
 
         return usuarios;
     }
-    
-    
+
     // Método para listar las auditorías de usuarios
     public List<UsuarioAuditoria> listarAuditoria() {
         List<UsuarioAuditoria> auditorias = new ArrayList<>();
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConexionMaster();
-        String sql = "SELECT * FROM auditoriaUsuarios";
+        String sql = "SELECT * FROM auditoria";
 
         try {
             ps = con.prepareStatement(sql);
@@ -171,7 +170,7 @@ public class DbUsuarioMaster extends ConexionMaster {
                 a.setNombreTabla(rs.getString("nombreTabla"));
                 a.setAnterior(rs.getString("anterior"));
                 a.setNuevo(rs.getString("nuevo"));
-                
+
                 auditorias.add(a);
             }
         } catch (SQLException e) {
@@ -183,24 +182,25 @@ public class DbUsuarioMaster extends ConexionMaster {
                 System.err.println(e);
             }
         }
-        
+
         return auditorias;
     }
-    
+
     public boolean exists(int usuarioID) {
-    // Implementar la lógica para verificar si el usuarioID existe en la base de datos.
-    String query = "SELECT COUNT(*) FROM Usuarios WHERE UsuarioID = ?";
-    try (Connection con = getConexionMaster();  
-         PreparedStatement pst = con.prepareStatement(query)) {
-        pst.setInt(1, usuarioID);
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            return rs.getInt(1) > 0;
+        // Implementar la lógica para verificar si el usuarioID existe en la base de
+        // datos.
+        String query = "SELECT COUNT(*) FROM Usuarios WHERE UsuarioID = ?";
+        try (Connection con = getConexionMaster();
+                PreparedStatement pst = con.prepareStatement(query)) {
+            pst.setInt(1, usuarioID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return false;
     }
-    return false;
-}
 
 }

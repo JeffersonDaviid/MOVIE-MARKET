@@ -173,7 +173,7 @@ public class DbDirectorMaster extends ConexionMaster {
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConexionMaster();
-        String sql = "SELECT * FROM auditoriaDirectores";
+        String sql = "SELECT * FROM auditoria";
 
         try {
             ps = con.prepareStatement(sql);

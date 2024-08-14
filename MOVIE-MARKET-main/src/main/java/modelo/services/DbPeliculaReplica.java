@@ -119,8 +119,7 @@ public class DbPeliculaReplica extends ConexionReplica {
             }
         }
     }
-    
-    
+
     public List<Pelicula> listar() {
         List<Pelicula> peliculas = new ArrayList<>();
         PreparedStatement ps;
@@ -160,7 +159,7 @@ public class DbPeliculaReplica extends ConexionReplica {
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConexionReplica();
-        String sql = "SELECT * FROM auditoriaPeliculas";
+        String sql = "SELECT * FROM auditoria";
 
         try {
             ps = con.prepareStatement(sql);
@@ -189,22 +188,22 @@ public class DbPeliculaReplica extends ConexionReplica {
 
         return auditoriaList;
     }
-    
+
     public boolean exists(int peliculaID) {
-    // Implementar la lógica para verificar si el peliculaID existe en la base de datos.
-    String query = "SELECT COUNT(*) FROM Peliculas WHERE PeliculaID = ?";
-    try (Connection con = getConexionReplica();  
-         PreparedStatement pst = con.prepareStatement(query)) {
-        pst.setInt(1, peliculaID);
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            return rs.getInt(1) > 0;
+        // Implementar la lógica para verificar si el peliculaID existe en la base de
+        // datos.
+        String query = "SELECT COUNT(*) FROM Peliculas WHERE PeliculaID = ?";
+        try (Connection con = getConexionReplica();
+                PreparedStatement pst = con.prepareStatement(query)) {
+            pst.setInt(1, peliculaID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return false;
     }
-    return false;
-}
 
 }
-

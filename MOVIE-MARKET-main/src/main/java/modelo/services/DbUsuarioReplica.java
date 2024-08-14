@@ -42,7 +42,7 @@ public class DbUsuarioReplica extends ConexionReplica {
             }
         }
     }
-    
+
     public List<Usuario> listar() {
         List<Usuario> usuarios = new ArrayList<>();
         PreparedStatement ps;
@@ -75,22 +75,22 @@ public class DbUsuarioReplica extends ConexionReplica {
 
         return usuarios;
     }
-    
-    
+
     public boolean exists(int usuarioID) {
-    // Implementar la lógica para verificar si el usuarioID existe en la base de datos.
-    String query = "SELECT COUNT(*) FROM vistaUsuarios WHERE UsuarioID = ?";
-    try (Connection con = getConexionReplica();  
-         PreparedStatement pst = con.prepareStatement(query)) {
-        pst.setInt(1, usuarioID);
-        ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            return rs.getInt(1) > 0;
+        // Implementar la lógica para verificar si el usuarioID existe en la base de
+        // datos.
+        String query = "SELECT COUNT(*) FROM vistaUsuarios WHERE UsuarioID = ?";
+        try (Connection con = getConexionReplica();
+                PreparedStatement pst = con.prepareStatement(query)) {
+            pst.setInt(1, usuarioID);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return false;
     }
-    return false;
-}
 
 }

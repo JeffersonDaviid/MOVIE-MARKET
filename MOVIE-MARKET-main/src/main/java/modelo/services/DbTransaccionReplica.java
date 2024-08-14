@@ -10,7 +10,7 @@ import modelo.entities.ConexionReplica;
 import modelo.entities.Transaccion;
 import modelo.entities.TransaccionAuditoria;
 
-public class DbTransaccionReplica extends ConexionReplica{
+public class DbTransaccionReplica extends ConexionReplica {
 
     public boolean guardar(Transaccion t) {
         PreparedStatement ps;
@@ -87,38 +87,37 @@ public class DbTransaccionReplica extends ConexionReplica{
 
     public boolean buscar(Transaccion t) {
         PreparedStatement ps;
-    ResultSet rs;
-    Connection con = getConexionReplica();
-    String sql = "SELECT * FROM Transacciones WHERE peliculaID=? AND usuarioID=?";
+        ResultSet rs;
+        Connection con = getConexionReplica();
+        String sql = "SELECT * FROM Transacciones WHERE peliculaID=? AND usuarioID=?";
 
-    try {
-        ps = con.prepareStatement(sql);
-        ps.setInt(1, t.getPeliculaID());
-        ps.setInt(2, t.getUsuarioID());
-        rs = ps.executeQuery();
-
-        if (rs.next()) {
-            t.setTransaccionID(rs.getInt("transaccionID"));
-            t.setPeliculaID(rs.getInt("peliculaID"));
-            t.setUsuarioID(rs.getInt("usuarioID"));
-            t.setFechaTransaccion(rs.getDate("fechaTransaccion"));
-            t.setTipoTransaccion(rs.getString("tipoTransaccion"));
-            return true;
-        }
-        return false;
-    } catch (SQLException e) {
-        System.err.println(e);
-        return false;
-    } finally {
         try {
-            con.close();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, t.getPeliculaID());
+            ps.setInt(2, t.getUsuarioID());
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                t.setTransaccionID(rs.getInt("transaccionID"));
+                t.setPeliculaID(rs.getInt("peliculaID"));
+                t.setUsuarioID(rs.getInt("usuarioID"));
+                t.setFechaTransaccion(rs.getDate("fechaTransaccion"));
+                t.setTipoTransaccion(rs.getString("tipoTransaccion"));
+                return true;
+            }
+            return false;
         } catch (SQLException e) {
             System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
         }
     }
- }
-    
-    
+
     public List<Transaccion> listar() {
         List<Transaccion> transacciones = new ArrayList<>();
         PreparedStatement ps;
@@ -157,7 +156,7 @@ public class DbTransaccionReplica extends ConexionReplica{
         PreparedStatement ps;
         ResultSet rs;
         Connection con = getConexionReplica();
-        String sql = "SELECT * FROM auditoriaTransacciones";
+        String sql = "SELECT * FROM auditoria";
 
         try {
             ps = con.prepareStatement(sql);
