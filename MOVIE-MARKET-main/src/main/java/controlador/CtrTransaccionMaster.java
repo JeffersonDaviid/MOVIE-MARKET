@@ -38,8 +38,8 @@ public class CtrTransaccionMaster implements ActionListener {
 
         // Guardar
     if (e.getSource() == frm.btnGuardarTransaccion) {
-        int peliculaID = Integer.parseInt(frm.txtPeliculaIDTransaccion.getText());
-        int usuarioID = Integer.parseInt(frm.txtUsuarioIDTransaccion.getText());
+        int peliculaID = Integer.parseInt((String) frm.boxPeliculaIDTransaccion.getSelectedItem());
+        int usuarioID = Integer.parseInt((String) frm.boxUsuarioIDTransaccion.getSelectedItem());
 
         DbPeliculaMaster dbPelicula = new DbPeliculaMaster();
         DbUsuarioMaster dbUsuario = new DbUsuarioMaster();
@@ -51,6 +51,10 @@ public class CtrTransaccionMaster implements ActionListener {
 
             String item = frm.boxTipoTransaccion.getSelectedItem().toString();
             mod.setTipoTransaccion(item.equals("Compra") ? "compra" : item.equals("Alquiler") ? "alquiler" : "");
+            
+            if(item.equals("Alquiler"))
+                JOptionPane.showMessageDialog(null, "No es posible añadir transacción tipo Alquiler");     
+            else{
 
             if (modDb.guardar(mod)) {
                 JOptionPane.showMessageDialog(null, "Transacción registrada");
@@ -59,15 +63,17 @@ public class CtrTransaccionMaster implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Error al registrar");
                 limpiar();
             }
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Película o Usuario no existen");
         }
+        
     }
 
     // Buscar
     if (e.getSource() == frm.btnBuscarTransaccion) {
-        int peliculaID = Integer.parseInt(frm.txtPeliculaIDTransaccion1.getText());
-        int usuarioID = Integer.parseInt(frm.txtUsuarioIDTransaccion1.getText());
+        int peliculaID = Integer.parseInt((String) frm.boxPeliculaIDTransaccion1.getSelectedItem());
+        int usuarioID = Integer.parseInt((String) frm.boxUsuarioIDTransaccion1.getSelectedItem());
 
         // Verificar si la película y el usuario existen
         DbPeliculaMaster dbPelicula = new DbPeliculaMaster();
@@ -80,8 +86,6 @@ public class CtrTransaccionMaster implements ActionListener {
             if (modDb.buscar(mod)) {
                 // Mostrar los datos en los campos del formulario
                 frm.idTransaccion.setText(String.valueOf(mod.getTransaccionID())); // ID de la transacción
-                frm.txtUsuarioIDTransaccion1.setText(String.valueOf(mod.getUsuarioID()));
-                frm.txtPeliculaIDTransaccion1.setText(String.valueOf(mod.getPeliculaID()));
                 frm.txtTipoTransaccion1.setText(mod.getTipoTransaccion());
 
                 // Formatear la fecha para mostrar en el formulario
@@ -102,8 +106,8 @@ public class CtrTransaccionMaster implements ActionListener {
     // Actualizar
     if (e.getSource() == frm.btnActualizarTransaccion1) {
         if (verificarBusqueda) {
-            int peliculaID = Integer.parseInt(frm.txtPeliculaIDTransaccion1.getText());
-            int usuarioID = Integer.parseInt(frm.txtUsuarioIDTransaccion1.getText());
+            int peliculaID = Integer.parseInt((String) frm.boxPeliculaIDTransaccion1.getSelectedItem());
+            int usuarioID = Integer.parseInt((String) frm.boxUsuarioIDTransaccion1.getSelectedItem());
 
             DbPeliculaMaster dbPelicula = new DbPeliculaMaster();
             DbUsuarioMaster dbUsuario = new DbUsuarioMaster();
@@ -116,6 +120,12 @@ public class CtrTransaccionMaster implements ActionListener {
                 String item = frm.boxTipoTransaccionEditable.getSelectedItem().toString();
                 mod.setTipoTransaccion(item.equals("Compra") ? "compra" : item.equals("Alquiler") ? "alquiler" : "");
                 
+                if(item.equals("Alquiler")){
+                    JOptionPane.showMessageDialog(null, "No es posible modificar transacción a tipo Alquiler");
+                    verificarBusqueda=false;
+                    limpiarActualizar();
+                }    
+                else{
                 if (modDb.modificar(mod)) {
                     JOptionPane.showMessageDialog(null, "Transacción actualizada");
                     limpiarActualizar();
@@ -123,6 +133,7 @@ public class CtrTransaccionMaster implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al actualizar");
                     limpiarActualizar();
+                }
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Película o Usuario no existen");
@@ -135,12 +146,7 @@ public class CtrTransaccionMaster implements ActionListener {
     // Eliminar
     if (e.getSource() == frm.btnEliminarTransaccion) {
         if (verificarBusqueda) {
-            int peliculaID = Integer.parseInt(frm.idTransaccion.getText());
-
-            DbPeliculaMaster dbPelicula = new DbPeliculaMaster();
-            DbUsuarioMaster dbUsuario = new DbUsuarioMaster();
-
-            if (dbPelicula.exists(peliculaID) && dbUsuario.exists(mod.getUsuarioID())) {
+            mod.setTransaccionID(Integer.parseInt(frm.idTransaccion.getText()));
                 if (modDb.eliminar(mod)) {
                     JOptionPane.showMessageDialog(null, "Transacción eliminada");
                     limpiarActualizar();
@@ -148,9 +154,7 @@ public class CtrTransaccionMaster implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error al eliminar");
                     limpiarActualizar();
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Película o Usuario no existen");
-            }
+
         } else {
             JOptionPane.showMessageDialog(null, "No se realizó una búsqueda antes de la eliminación");
         }
@@ -158,16 +162,10 @@ public class CtrTransaccionMaster implements ActionListener {
     }
 
     public void limpiar() {
-        frm.txtPeliculaIDTransaccion.setText(null);
-        frm.txtUsuarioIDTransaccion.setText(null);
-        frm.boxTipoTransaccion.setSelectedIndex(-1);
     }
 
     public void limpiarActualizar() {
-        frm.txtPeliculaIDTransaccion1.setText(null);
-        frm.txtUsuarioIDTransaccion1.setText(null);
         frm.txtTipoTransaccion1.setText(null);
-        frm.boxTipoTransaccionEditable.setSelectedIndex(-1);
         frm.txtFechaTransaccion.setText(null);
         frm.idTransaccion.setText(null);
     }

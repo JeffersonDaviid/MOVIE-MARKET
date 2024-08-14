@@ -109,12 +109,12 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         jLabel78 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
         txtTituloPelicula = new javax.swing.JTextField();
-        txtDirectorID = new javax.swing.JTextField();
-        txtGeneroID = new javax.swing.JTextField();
         btnGuardarPelicula = new javax.swing.JButton();
         anioLanzamiento = new com.toedter.calendar.JYearChooser();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtSinopsisPelicula = new javax.swing.JTextArea();
+        boxDirectorIDPelicula = new javax.swing.JComboBox<>();
+        boxGeneroIDPelicula = new javax.swing.JComboBox<>();
         panelListarPelicula = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
         listarPeliculas = new javax.swing.JTable();
@@ -132,11 +132,11 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         btnBuscarPelicula = new javax.swing.JButton();
         btnActualizarPelicula1 = new javax.swing.JButton();
         btnEliminarPelicula = new javax.swing.JButton();
-        txtDirectorIDEditable = new javax.swing.JTextField();
-        txtGeneroIDEditable = new javax.swing.JTextField();
         anioLanzamientoEditable = new com.toedter.calendar.JYearChooser();
         jScrollPane6 = new javax.swing.JScrollPane();
         txtSinopsisPelicula1 = new javax.swing.JTextArea();
+        boxDirectorIDPelicula1 = new javax.swing.JComboBox<>();
+        boxGeneroIDPelicula1 = new javax.swing.JComboBox<>();
         panelAuditoriaPelicula = new javax.swing.JPanel();
         jScrollPane16 = new javax.swing.JScrollPane();
         mostrarAuditoriaDirectores7 = new javax.swing.JTable();
@@ -150,19 +150,17 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         jLabel87 = new javax.swing.JLabel();
         jLabel88 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
-        txtPeliculaID = new javax.swing.JTextField();
-        txtUsuarioID = new javax.swing.JTextField();
         btnGuardarComentario = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         txtComentario = new javax.swing.JTextArea();
+        boxPeliculaIDComentario = new javax.swing.JComboBox<>();
+        boxUsuarioIDComentario = new javax.swing.JComboBox<>();
         panelListarComentario = new javax.swing.JPanel();
         jScrollPane17 = new javax.swing.JScrollPane();
         listarDirectores7 = new javax.swing.JTable();
         panelActualizarComentario = new javax.swing.JPanel();
         jLabel93 = new javax.swing.JLabel();
         jLabel94 = new javax.swing.JLabel();
-        txtPeliculaIDEditable = new javax.swing.JTextField();
-        txtUsuarioIDEditable = new javax.swing.JTextField();
         jLabel95 = new javax.swing.JLabel();
         idComentario = new javax.swing.JTextField();
         btnBuscarComentario = new javax.swing.JButton();
@@ -174,6 +172,8 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         txtFechaComentario = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
         txtComentarioEditable1 = new javax.swing.JTextArea();
+        boxUsuarioIDComentario1 = new javax.swing.JComboBox<>();
+        boxPeliculaIDComentario1 = new javax.swing.JComboBox<>();
         panelAuditoriaComentario = new javax.swing.JPanel();
         jScrollPane18 = new javax.swing.JScrollPane();
         mostrarAuditoriaDirectores8 = new javax.swing.JTable();
@@ -187,18 +187,16 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         jLabel99 = new javax.swing.JLabel();
         jLabel100 = new javax.swing.JLabel();
         jLabel101 = new javax.swing.JLabel();
-        txtPeliculaIDTransaccion = new javax.swing.JTextField();
-        txtUsuarioIDTransaccion = new javax.swing.JTextField();
         btnGuardarTransaccion = new javax.swing.JButton();
         boxTipoTransaccion = new javax.swing.JComboBox<>();
+        boxPeliculaIDTransaccion = new javax.swing.JComboBox<>();
+        boxUsuarioIDTransaccion = new javax.swing.JComboBox<>();
         panelListarTransaccion = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
         listarDirectores8 = new javax.swing.JTable();
         panelActualizarTransaccion = new javax.swing.JPanel();
         jLabel105 = new javax.swing.JLabel();
         jLabel106 = new javax.swing.JLabel();
-        txtPeliculaIDTransaccion1 = new javax.swing.JTextField();
-        txtUsuarioIDTransaccion1 = new javax.swing.JTextField();
         jLabel107 = new javax.swing.JLabel();
         jLabel109 = new javax.swing.JLabel();
         txtTipoTransaccion1 = new javax.swing.JTextField();
@@ -208,6 +206,8 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         btnActualizarTransaccion1 = new javax.swing.JButton();
         btnEliminarTransaccion = new javax.swing.JButton();
         boxTipoTransaccionEditable = new javax.swing.JComboBox<>();
+        boxPeliculaIDTransaccion1 = new javax.swing.JComboBox<>();
+        boxUsuarioIDTransaccion1 = new javax.swing.JComboBox<>();
         panelAuditoriaTransaccion = new javax.swing.JPanel();
         jScrollPane20 = new javax.swing.JScrollPane();
         mostrarAuditoriaDirectores9 = new javax.swing.JTable();
@@ -217,6 +217,15 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         btnAuditoriaTransaccion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1050, 840));
+        setResizable(false);
+
+        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
+
+        tabDirectores.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelListar.setBackground(new java.awt.Color(255, 255, 255));
 
         listarDirectores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -232,12 +241,16 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelListar.setLayout(panelListarLayout);
         panelListarLayout.setHorizontalGroup(
             panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
         );
         panelListarLayout.setVerticalGroup(
             panelListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelListarLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        panelActualizar.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel7.setText("Nombre:");
 
@@ -306,7 +319,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                         .addComponent(idDirector, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
                         .addComponent(btnBuscarDirector)))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(598, Short.MAX_VALUE))
         );
         panelActualizarLayout.setVerticalGroup(
             panelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,7 +362,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 979, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -363,7 +376,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 317, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelListar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,11 +405,12 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             tabDirectoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabDirectoresLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabDirectoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnListar)
-                    .addComponent(btnActualizar))
-                .addGap(20, 20, 20)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabDirectoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnListar, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         tabDirectoresLayout.setVerticalGroup(
             tabDirectoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,6 +424,10 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Directores", tabDirectores);
+
+        tabGeneros.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelListarGenero.setBackground(new java.awt.Color(255, 255, 255));
 
         listarGeneros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -425,12 +443,16 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelListarGenero.setLayout(panelListarGeneroLayout);
         panelListarGeneroLayout.setHorizontalGroup(
             panelListarGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+            .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
         );
         panelListarGeneroLayout.setVerticalGroup(
             panelListarGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelListarGeneroLayout.createSequentialGroup()
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        panelActualizarGenero.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel21.setText("Nombre Genero:");
 
@@ -459,7 +481,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                         .addComponent(jLabel21)
                         .addGap(98, 98, 98)
                         .addComponent(txtNombreGenero1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(601, Short.MAX_VALUE))
         );
         panelActualizarGeneroLayout.setVerticalGroup(
             panelActualizarGeneroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -482,7 +504,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         jLayeredPane7.setLayout(jLayeredPane7Layout);
         jLayeredPane7Layout.setHorizontalGroup(
             jLayeredPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 979, Short.MAX_VALUE)
             .addGroup(jLayeredPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane7Layout.createSequentialGroup()
                     .addContainerGap()
@@ -492,11 +514,11 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                 .addGroup(jLayeredPane7Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panelActualizarGenero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(14, 14, 14)))
+                    .addContainerGap()))
         );
         jLayeredPane7Layout.setVerticalGroup(
             jLayeredPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 317, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
             .addGroup(jLayeredPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelListarGenero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,11 +547,12 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             tabGenerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabGenerosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabGenerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnListarGenero)
-                    .addComponent(btnActualizarGenero))
-                .addGap(20, 20, 20)
-                .addComponent(jLayeredPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabGenerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnListarGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                    .addComponent(btnActualizarGenero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         tabGenerosLayout.setVerticalGroup(
             tabGenerosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -543,6 +566,10 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Generos", tabGeneros);
+
+        tabUsuarios.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelListarUsuarios.setBackground(new java.awt.Color(255, 255, 255));
 
         listarUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -558,12 +585,16 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelListarUsuarios.setLayout(panelListarUsuariosLayout);
         panelListarUsuariosLayout.setHorizontalGroup(
             panelListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1061, Short.MAX_VALUE)
         );
         panelListarUsuariosLayout.setVerticalGroup(
             panelListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelListarUsuariosLayout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        panelActualizarUsuarios.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel20.setText("Nombre:");
 
@@ -616,7 +647,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                             .addComponent(txtApellidoUsuario1)
                             .addComponent(txtNombreUsuario1)
                             .addComponent(txtFechaRegistro))))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(708, Short.MAX_VALUE))
         );
         panelActualizarUsuariosLayout.setVerticalGroup(
             panelActualizarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -651,7 +682,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 1073, Short.MAX_VALUE)
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
                     .addContainerGap()
@@ -660,12 +691,11 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelActualizarUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(14, 14, 14)))
+                    .addComponent(panelActualizarUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 317, Short.MAX_VALUE)
+            .addGap(0, 475, Short.MAX_VALUE)
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelListarUsuarios, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -694,11 +724,12 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             tabUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabUsuariosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnListarUsuario)
-                    .addComponent(btnActualizarUsuario))
-                .addGap(20, 20, 20)
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnListarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                    .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         tabUsuariosLayout.setVerticalGroup(
             tabUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -713,6 +744,10 @@ public class FrmMenuReplica extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Usuarios", tabUsuarios);
 
+        tabPeliculas.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelAgregarPelicula.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel75.setText("Titulo:");
 
         jLabel76.setText("Director ID:");
@@ -723,17 +758,46 @@ public class FrmMenuReplica extends javax.swing.JFrame {
 
         jLabel79.setText("Sinopsis");
 
-        txtGeneroID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtGeneroIDActionPerformed(evt);
-            }
-        });
-
         btnGuardarPelicula.setText("GUARDAR ");
 
         txtSinopsisPelicula.setColumns(20);
         txtSinopsisPelicula.setRows(5);
         jScrollPane5.setViewportView(txtSinopsisPelicula);
+
+        // Obtener los datos de la base de datos
+        DbDirectorReplica db6 = new DbDirectorReplica();
+        List<Director> directores = db6.listar();
+
+        // Crear un arreglo para almacenar todos los PeliculaID
+        String[] directorIDs = new String[directores.size()];
+
+        // Llenar el arreglo con los datos de PeliculaID
+        int index3 = 0;
+        for (Director t : directores) {
+            directorIDs[index3++] = String.valueOf(t.getDirectorID());
+        }
+
+        // Ahora tienes todos los PeliculaID en el arreglo 'peliculaIDs'
+        boxDirectorIDPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(directorIDs));
+
+        // Obtener los datos de la base de datos
+        DbGeneroReplica db3 = new DbGeneroReplica();
+        List<Genero> generos = db3.listar();
+
+        // Crear un arreglo para almacenar todos los PeliculaID
+        String[] generoIDs = new String[generos.size()];
+
+        // Llenar el arreglo con los datos de PeliculaID
+        int index4 = 0;
+        for (Genero g : generos) {
+            generoIDs[index4++] = String.valueOf(g.getGeneroID());
+        }
+        boxGeneroIDPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(generoIDs));
+        boxGeneroIDPelicula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxGeneroIDPeliculaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelAgregarPeliculaLayout = new javax.swing.GroupLayout(panelAgregarPelicula);
         panelAgregarPelicula.setLayout(panelAgregarPeliculaLayout);
@@ -743,32 +807,36 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAgregarPeliculaLayout.createSequentialGroup()
-                        .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel75)
+                            .addComponent(jLabel76)
+                            .addComponent(jLabel77))
+                        .addGap(157, 157, 157)
+                        .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAgregarPeliculaLayout.createSequentialGroup()
-                                .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel75)
-                                    .addComponent(jLabel76)
-                                    .addComponent(jLabel77))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTituloPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                    .addComponent(txtDirectorID)
-                                    .addComponent(txtGeneroID)))
+                                .addComponent(boxDirectorIDPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panelAgregarPeliculaLayout.createSequentialGroup()
-                                .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel78)
-                                    .addComponent(jLabel79))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
-                                .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarPeliculaLayout.createSequentialGroup()
-                                        .addComponent(anioLanzamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(99, 99, 99))
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(26, 26, 26))
-                    .addGroup(panelAgregarPeliculaLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(btnGuardarPelicula)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(boxGeneroIDPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtTituloPelicula))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarPeliculaLayout.createSequentialGroup()
+                        .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel78)
+                            .addComponent(jLabel79))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                        .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarPeliculaLayout.createSequentialGroup()
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(panelAgregarPeliculaLayout.createSequentialGroup()
+                                .addComponent(anioLanzamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarPeliculaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnGuardarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(172, 172, 172))
         );
         panelAgregarPeliculaLayout.setVerticalGroup(
             panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -777,14 +845,14 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                 .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel75)
                     .addComponent(txtTituloPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel76)
-                    .addComponent(txtDirectorID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel76)
+                    .addComponent(boxDirectorIDPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel77)
-                    .addComponent(txtGeneroID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxGeneroIDPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(panelAgregarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAgregarPeliculaLayout.createSequentialGroup()
@@ -794,11 +862,13 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                     .addGroup(panelAgregarPeliculaLayout.createSequentialGroup()
                         .addComponent(anioLanzamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)))
-                .addGap(12, 12, 12)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
                 .addComponent(btnGuardarPelicula)
-                .addContainerGap())
+                .addContainerGap(62, Short.MAX_VALUE))
         );
+
+        panelListarPelicula.setBackground(new java.awt.Color(255, 255, 255));
 
         listarPeliculas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -814,12 +884,17 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelListarPelicula.setLayout(panelListarPeliculaLayout);
         panelListarPeliculaLayout.setHorizontalGroup(
             panelListarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+            .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
         );
         panelListarPeliculaLayout.setVerticalGroup(
             panelListarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelListarPeliculaLayout.createSequentialGroup()
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        panelActualizarPelicula.setBackground(new java.awt.Color(255, 255, 255));
+        panelActualizarPelicula.setName(""); // NOI18N
 
         jLabel81.setText("Titulo Pelicula:");
 
@@ -864,43 +939,55 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         txtSinopsisPelicula1.setRows(5);
         jScrollPane6.setViewportView(txtSinopsisPelicula1);
 
+        boxDirectorIDPelicula1.setModel(new javax.swing.DefaultComboBoxModel<>(directorIDs));
+
+        boxGeneroIDPelicula1.setModel(new javax.swing.DefaultComboBoxModel<>(generoIDs));
+        boxGeneroIDPelicula1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxGeneroIDPelicula1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelActualizarPeliculaLayout = new javax.swing.GroupLayout(panelActualizarPelicula);
         panelActualizarPelicula.setLayout(panelActualizarPeliculaLayout);
         panelActualizarPeliculaLayout.setHorizontalGroup(
             panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelActualizarPeliculaLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(idPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel81)
+                        .addComponent(jLabel83)
+                        .addComponent(jLabel84)
+                        .addComponent(jLabel85)
+                        .addComponent(jLabel86)))
                 .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelActualizarPeliculaLayout.createSequentialGroup()
-                        .addComponent(idPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addComponent(btnBuscarPelicula)
-                        .addGap(97, 97, 97)
-                        .addComponent(btnActualizarPelicula1)
-                        .addGap(68, 68, 68)
-                        .addComponent(btnEliminarPelicula)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelActualizarPeliculaLayout.createSequentialGroup()
-                        .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel81)
-                            .addComponent(jLabel83)
-                            .addComponent(jLabel84)
-                            .addComponent(jLabel85)
-                            .addComponent(jLabel86))
                         .addGap(62, 62, 62)
                         .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNombrePelicula1)
                             .addComponent(txtDirectorID1)
                             .addComponent(txtGeneroID1)
                             .addComponent(txtAnioLanzamiento1)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelActualizarPeliculaLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnBuscarPelicula)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                        .addComponent(btnActualizarPelicula1)))
+                .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelActualizarPeliculaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
                         .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtDirectorIDEditable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtGeneroIDEditable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(anioLanzamientoEditable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24))))
+                            .addComponent(anioLanzamientoEditable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxDirectorIDPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxGeneroIDPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14))
+                    .addGroup(panelActualizarPeliculaLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(btnEliminarPelicula)
+                        .addContainerGap(276, Short.MAX_VALUE))))
         );
         panelActualizarPeliculaLayout.setVerticalGroup(
             panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -911,14 +998,14 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                     .addComponent(txtNombrePelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDirectorIDEditable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel83)
-                    .addComponent(txtDirectorID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDirectorID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxDirectorIDPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGeneroIDEditable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel84)
-                    .addComponent(txtGeneroID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtGeneroID1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxGeneroIDPelicula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelActualizarPeliculaLayout.createSequentialGroup()
@@ -930,19 +1017,18 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                             .addComponent(jLabel86)
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(anioLanzamientoEditable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelActualizarPeliculaLayout.createSequentialGroup()
-                        .addGap(0, 8, Short.MAX_VALUE)
-                        .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnActualizarPelicula1)
-                            .addComponent(btnEliminarPelicula))
-                        .addGap(28, 28, 28))
-                    .addGroup(panelActualizarPeliculaLayout.createSequentialGroup()
-                        .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnBuscarPelicula)
-                            .addComponent(idPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnBuscarPelicula)
+                        .addComponent(idPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelActualizarPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnActualizarPelicula1)
+                        .addComponent(btnEliminarPelicula)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
+
+        panelAuditoriaPelicula.setBackground(new java.awt.Color(255, 255, 255));
 
         mostrarAuditoriaDirectores7.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -958,11 +1044,13 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelAuditoriaPelicula.setLayout(panelAuditoriaPeliculaLayout);
         panelAuditoriaPeliculaLayout.setHorizontalGroup(
             panelAuditoriaPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
         );
         panelAuditoriaPeliculaLayout.setVerticalGroup(
             panelAuditoriaPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+            .addGroup(panelAuditoriaPeliculaLayout.createSequentialGroup()
+                .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLayeredPane8.setLayer(panelAgregarPelicula, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -976,7 +1064,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             jLayeredPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane8Layout.createSequentialGroup()
                 .addComponent(panelAgregarPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 224, Short.MAX_VALUE))
+                .addGap(0, 429, Short.MAX_VALUE))
             .addGroup(jLayeredPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane8Layout.createSequentialGroup()
                     .addContainerGap()
@@ -1042,13 +1130,14 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             tabPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabPeliculasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAgregarPelicula)
-                    .addComponent(btnListarPelicula)
-                    .addComponent(btnActualizarPelicula)
-                    .addComponent(btnAuditoriaPelicula))
-                .addGap(20, 20, 20)
-                .addComponent(jLayeredPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAgregarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnActualizarPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(btnAuditoriaPelicula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLayeredPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         tabPeliculasLayout.setVerticalGroup(
             tabPeliculasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1067,6 +1156,8 @@ public class FrmMenuReplica extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Peliculas", tabPeliculas);
 
+        panelAgregarComentario.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel87.setText("Pelicula ID:");
 
         jLabel88.setText("Usuario ID:");
@@ -1078,6 +1169,41 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         txtComentario.setColumns(20);
         txtComentario.setRows(5);
         jScrollPane7.setViewportView(txtComentario);
+
+        // Obtener los datos de la base de datos
+        DbPeliculaReplica db1 = new DbPeliculaReplica();
+        List<Pelicula> peliculas = db1.listar();
+
+        // Crear un arreglo para almacenar todos los PeliculaID
+        String[] peliculaIDs = new String[peliculas.size()];
+
+        // Llenar el arreglo con los datos de PeliculaID
+        int index1 = 0;
+        for (Pelicula t : peliculas) {
+            peliculaIDs[index1++] = String.valueOf(t.getPeliculaID());
+        }
+
+        // Ahora tienes todos los PeliculaID en el arreglo 'peliculaIDs'
+        boxPeliculaIDComentario.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+
+        // Obtener los datos de la base de datos
+        DbUsuarioReplica db2 = new DbUsuarioReplica();
+        List<Usuario> usuarios = db2.listar();
+
+        // Crear un arreglo para almacenar todos los PeliculaID
+        String[] usuarioIDs = new String[usuarios.size()];
+
+        // Llenar el arreglo con los datos de PeliculaID
+        int index2 = 0;
+        for (Usuario t : usuarios) {
+            usuarioIDs[index2++] = String.valueOf(t.getUsuarioID());
+        }
+        boxUsuarioIDComentario.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));
+        boxUsuarioIDComentario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxUsuarioIDComentarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelAgregarComentarioLayout = new javax.swing.GroupLayout(panelAgregarComentario);
         panelAgregarComentario.setLayout(panelAgregarComentarioLayout);
@@ -1093,10 +1219,9 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                             .addComponent(jLabel89))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                         .addGroup(panelAgregarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtPeliculaID, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                                .addComponent(txtUsuarioID))
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxPeliculaIDComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxUsuarioIDComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26))
                     .addGroup(panelAgregarComentarioLayout.createSequentialGroup()
                         .addGap(141, 141, 141)
@@ -1106,25 +1231,26 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelAgregarComentarioLayout.setVerticalGroup(
             panelAgregarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAgregarComentarioLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(panelAgregarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(32, 32, 32)
+                .addGroup(panelAgregarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel87)
-                    .addComponent(txtPeliculaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxPeliculaIDComentario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelAgregarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel88)
-                    .addComponent(txtUsuarioID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(panelAgregarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAgregarComentarioLayout.createSequentialGroup()
+                        .addComponent(jLabel88)
                         .addGap(24, 24, 24)
                         .addComponent(jLabel89))
                     .addGroup(panelAgregarComentarioLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addComponent(boxUsuarioIDComentario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41)
                 .addComponent(btnGuardarComentario)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
+
+        panelListarComentario.setBackground(new java.awt.Color(255, 255, 255));
 
         listarDirectores7.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1140,22 +1266,20 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelListarComentario.setLayout(panelListarComentarioLayout);
         panelListarComentarioLayout.setHorizontalGroup(
             panelListarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+            .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE)
         );
         panelListarComentarioLayout.setVerticalGroup(
             panelListarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelListarComentarioLayout.createSequentialGroup()
+                .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        panelActualizarComentario.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel93.setText("Pelicula ID:");
 
         jLabel94.setText("Usuario ID:");
-
-        txtUsuarioIDEditable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioIDEditableActionPerformed(evt);
-            }
-        });
 
         jLabel95.setText("Comentario:");
 
@@ -1190,6 +1314,15 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         txtComentarioEditable1.setRows(5);
         jScrollPane9.setViewportView(txtComentarioEditable1);
 
+        boxUsuarioIDComentario1.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));
+        boxUsuarioIDComentario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxUsuarioIDComentario1ActionPerformed(evt);
+            }
+        });
+
+        boxPeliculaIDComentario1.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+
         javax.swing.GroupLayout panelActualizarComentarioLayout = new javax.swing.GroupLayout(panelActualizarComentario);
         panelActualizarComentario.setLayout(panelActualizarComentarioLayout);
         panelActualizarComentarioLayout.setHorizontalGroup(
@@ -1201,11 +1334,11 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                         .addComponent(idComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
                         .addComponent(btnBuscarComentario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnActualizarComentario1)
                         .addGap(53, 53, 53)
                         .addComponent(btnEliminarComentario)
-                        .addContainerGap(103, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelActualizarComentarioLayout.createSequentialGroup()
                         .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel93)
@@ -1215,13 +1348,17 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelActualizarComentarioLayout.createSequentialGroup()
-                                .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtUsuarioIDEditable, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                                    .addComponent(txtPeliculaIDEditable)
-                                    .addComponent(txtFechaComentario))
+                                .addComponent(txtFechaComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(panelActualizarComentarioLayout.createSequentialGroup()
-                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(boxPeliculaIDComentario1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelActualizarComentarioLayout.createSequentialGroup()
+                                .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                                    .addGroup(panelActualizarComentarioLayout.createSequentialGroup()
+                                        .addComponent(boxUsuarioIDComentario1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(17, 17, 17))))))
@@ -1230,13 +1367,13 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelActualizarComentarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel93)
-                    .addComponent(txtPeliculaIDEditable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxPeliculaIDComentario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel94)
-                    .addComponent(txtUsuarioIDEditable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxUsuarioIDComentario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel95)
@@ -1244,7 +1381,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(panelActualizarComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelActualizarComentarioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                         .addComponent(jLabel18)
                         .addGap(65, 65, 65))
                     .addGroup(panelActualizarComentarioLayout.createSequentialGroup()
@@ -1258,6 +1395,8 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                     .addComponent(btnEliminarComentario))
                 .addGap(16, 16, 16))
         );
+
+        panelAuditoriaComentario.setBackground(new java.awt.Color(255, 255, 255));
 
         mostrarAuditoriaDirectores8.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1273,11 +1412,11 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelAuditoriaComentario.setLayout(panelAuditoriaComentarioLayout);
         panelAuditoriaComentarioLayout.setHorizontalGroup(
             panelAuditoriaComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE)
         );
         panelAuditoriaComentarioLayout.setVerticalGroup(
             panelAuditoriaComentarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+            .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
         );
 
         jLayeredPane9.setLayer(panelAgregarComentario, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1291,7 +1430,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane9Layout.createSequentialGroup()
                 .addComponent(panelAgregarComentario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 224, Short.MAX_VALUE))
+                .addGap(0, 681, Short.MAX_VALUE))
             .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane9Layout.createSequentialGroup()
                     .addContainerGap()
@@ -1300,13 +1439,12 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane9Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelActualizarComentario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(14, 14, 14)))
+                    .addComponent(panelActualizarComentario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane9Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(panelAuditoriaComentario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGap(6, 6, 6)))
+                    .addContainerGap()))
         );
         jLayeredPane9Layout.setVerticalGroup(
             jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1314,13 +1452,15 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(panelListarComentario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane9Layout.createSequentialGroup()
+                .addGroup(jLayeredPane9Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelActualizarComentario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(panelActualizarComentario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
             .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane9Layout.createSequentialGroup()
+                .addGroup(jLayeredPane9Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panelAuditoriaComentario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(panelAuditoriaComentario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         btnAgregarComentarios.setText("Agregar");
@@ -1357,13 +1497,14 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             tabComentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabComentariosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabComentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAgregarComentarios)
-                    .addComponent(btnListarComentarios)
-                    .addComponent(btnActualizarComentarios)
-                    .addComponent(btnAuditoriaComentarios))
-                .addGap(20, 20, 20)
-                .addComponent(jLayeredPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabComentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAgregarComentarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListarComentarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnActualizarComentarios, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(btnAuditoriaComentarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLayeredPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         tabComentariosLayout.setVerticalGroup(
             tabComentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1382,6 +1523,10 @@ public class FrmMenuReplica extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Comentarios", tabComentarios);
 
+        tabTransacciones.setBackground(new java.awt.Color(255, 255, 255));
+
+        panelAgregarTransaccion.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel99.setText("Pelicula ID:");
 
         jLabel100.setText("Usuario ID:");
@@ -1390,12 +1535,21 @@ public class FrmMenuReplica extends javax.swing.JFrame {
 
         btnGuardarTransaccion.setText("GUARDAR ");
 
-        boxTipoTransaccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compra" }));
+        boxTipoTransaccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compra", "Alquiler" }));
         boxTipoTransaccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxTipoTransaccionActionPerformed(evt);
             }
         });
+
+        boxPeliculaIDTransaccion.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+        boxPeliculaIDTransaccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxPeliculaIDTransaccionActionPerformed(evt);
+            }
+        });
+
+        boxUsuarioIDTransaccion.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));
 
         javax.swing.GroupLayout panelAgregarTransaccionLayout = new javax.swing.GroupLayout(panelAgregarTransaccion);
         panelAgregarTransaccion.setLayout(panelAgregarTransaccionLayout);
@@ -1411,11 +1565,10 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                             .addComponent(jLabel101))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                         .addGroup(panelAgregarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelAgregarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtPeliculaIDTransaccion, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                                .addComponent(txtUsuarioIDTransaccion))
-                            .addComponent(boxTipoTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26))
+                            .addComponent(boxTipoTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxPeliculaIDTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxUsuarioIDTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(89, 89, 89))
                     .addGroup(panelAgregarTransaccionLayout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(btnGuardarTransaccion)
@@ -1424,22 +1577,24 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelAgregarTransaccionLayout.setVerticalGroup(
             panelAgregarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAgregarTransaccionLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(panelAgregarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(32, 32, 32)
+                .addGroup(panelAgregarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel99)
-                    .addComponent(txtPeliculaIDTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelAgregarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(boxPeliculaIDTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(panelAgregarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel100)
-                    .addComponent(txtUsuarioIDTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                    .addComponent(boxUsuarioIDTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panelAgregarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel101)
                     .addComponent(boxTipoTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(127, 127, 127)
                 .addComponent(btnGuardarTransaccion)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(194, Short.MAX_VALUE))
         );
+
+        panelListarTransaccion.setBackground(new java.awt.Color(255, 255, 255));
 
         listarDirectores8.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1455,22 +1610,20 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelListarTransaccion.setLayout(panelListarTransaccionLayout);
         panelListarTransaccionLayout.setHorizontalGroup(
             panelListarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE)
         );
         panelListarTransaccionLayout.setVerticalGroup(
             panelListarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelListarTransaccionLayout.createSequentialGroup()
+                .addComponent(jScrollPane19, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        panelActualizarTransaccion.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel105.setText("Pelicula ID:");
 
         jLabel106.setText("Usuario ID:");
-
-        txtUsuarioIDTransaccion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioIDTransaccion1ActionPerformed(evt);
-            }
-        });
 
         jLabel107.setText("Tipo de Transaccion:");
 
@@ -1500,6 +1653,10 @@ public class FrmMenuReplica extends javax.swing.JFrame {
 
         boxTipoTransaccionEditable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compra" }));
 
+        boxPeliculaIDTransaccion1.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+
+        boxUsuarioIDTransaccion1.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));
+
         javax.swing.GroupLayout panelActualizarTransaccionLayout = new javax.swing.GroupLayout(panelActualizarTransaccion);
         panelActualizarTransaccion.setLayout(panelActualizarTransaccionLayout);
         panelActualizarTransaccionLayout.setHorizontalGroup(
@@ -1514,24 +1671,25 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                                     .addComponent(jLabel105)
                                     .addComponent(jLabel106)
                                     .addComponent(jLabel107))
-                                .addGap(104, 104, 104)
-                                .addGroup(panelActualizarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtUsuarioIDTransaccion1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                    .addComponent(txtPeliculaIDTransaccion1)
-                                    .addComponent(txtTipoTransaccion1)
-                                    .addComponent(txtFechaTransaccion)))
+                                .addGap(103, 103, 103)
+                                .addGroup(panelActualizarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(panelActualizarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtTipoTransaccion1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                                        .addComponent(txtFechaTransaccion)
+                                        .addComponent(boxPeliculaIDTransaccion1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(boxUsuarioIDTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelActualizarTransaccionLayout.createSequentialGroup()
                                 .addComponent(idTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(55, 55, 55)
                                 .addComponent(btnBuscarTransaccion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnActualizarTransaccion1)))
                         .addGap(53, 53, 53)
                         .addGroup(panelActualizarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnEliminarTransaccion)
                             .addComponent(boxTipoTransaccionEditable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel109))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(555, Short.MAX_VALUE))
         );
         panelActualizarTransaccionLayout.setVerticalGroup(
             panelActualizarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1539,11 +1697,11 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelActualizarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel105)
-                    .addComponent(txtPeliculaIDTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxPeliculaIDTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelActualizarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel106)
-                    .addComponent(txtUsuarioIDTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxUsuarioIDTransaccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelActualizarTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel107)
@@ -1562,6 +1720,8 @@ public class FrmMenuReplica extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
+        panelAuditoriaTransaccion.setBackground(new java.awt.Color(255, 255, 255));
+
         mostrarAuditoriaDirectores9.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -1576,11 +1736,13 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         panelAuditoriaTransaccion.setLayout(panelAuditoriaTransaccionLayout);
         panelAuditoriaTransaccionLayout.setHorizontalGroup(
             panelAuditoriaTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 1051, Short.MAX_VALUE)
         );
         panelAuditoriaTransaccionLayout.setVerticalGroup(
             panelAuditoriaTransaccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+            .addGroup(panelAuditoriaTransaccionLayout.createSequentialGroup()
+                .addComponent(jScrollPane20, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLayeredPane10.setLayer(panelAgregarTransaccion, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1594,7 +1756,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             jLayeredPane10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane10Layout.createSequentialGroup()
                 .addComponent(panelAgregarTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 224, Short.MAX_VALUE))
+                .addGap(0, 681, Short.MAX_VALUE))
             .addGroup(jLayeredPane10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane10Layout.createSequentialGroup()
                     .addContainerGap()
@@ -1660,13 +1822,14 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             tabTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabTransaccionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAgregarTransaccion)
-                    .addComponent(btnListarTransaccion)
-                    .addComponent(btnActualizarTransaccion)
-                    .addComponent(btnAuditoriaTransaccion))
-                .addGap(20, 20, 20)
-                .addComponent(jLayeredPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tabTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAgregarTransaccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnListarTransaccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnActualizarTransaccion, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(btnAuditoriaTransaccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLayeredPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         tabTransaccionesLayout.setVerticalGroup(
             tabTransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1690,7 +1853,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
@@ -1963,10 +2126,6 @@ panelListarUsuarios.repaint(); // Repinta el panel
     panelAuditoriaPelicula.repaint(); // Repinta el panel
     }//GEN-LAST:event_btnAuditoriaPeliculaActionPerformed
 
-    private void txtUsuarioIDEditableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioIDEditableActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioIDEditableActionPerformed
-
     private void idComentarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idComentarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idComentarioActionPerformed
@@ -2068,10 +2227,6 @@ panelAuditoriaComentario.setVisible(false);
     panelAuditoriaComentario.revalidate(); // Actualiza el panel
     panelAuditoriaComentario.repaint(); // Repinta el panel
     }//GEN-LAST:event_btnAuditoriaComentariosActionPerformed
-
-    private void txtUsuarioIDTransaccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioIDTransaccion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioIDTransaccion1ActionPerformed
 
     private void idTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTransaccionActionPerformed
         // TODO add your handling code here:
@@ -2175,13 +2330,29 @@ panelAuditoriaComentario.setVisible(false);
     panelAuditoriaTransaccion.repaint(); // Repinta el panel
     }//GEN-LAST:event_btnAuditoriaTransaccionActionPerformed
 
-    private void txtGeneroIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGeneroIDActionPerformed
-
     private void boxTipoTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxTipoTransaccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxTipoTransaccionActionPerformed
+
+    private void boxGeneroIDPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxGeneroIDPeliculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxGeneroIDPeliculaActionPerformed
+
+    private void boxGeneroIDPelicula1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxGeneroIDPelicula1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxGeneroIDPelicula1ActionPerformed
+
+    private void boxUsuarioIDComentarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxUsuarioIDComentarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxUsuarioIDComentarioActionPerformed
+
+    private void boxUsuarioIDComentario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxUsuarioIDComentario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxUsuarioIDComentario1ActionPerformed
+
+    private void boxPeliculaIDTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxPeliculaIDTransaccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxPeliculaIDTransaccionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2228,8 +2399,20 @@ panelAuditoriaComentario.setVisible(false);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public com.toedter.calendar.JYearChooser anioLanzamiento;
     public com.toedter.calendar.JYearChooser anioLanzamientoEditable;
+    public javax.swing.JComboBox<String> boxDirectorIDPelicula;
+    public javax.swing.JComboBox<String> boxDirectorIDPelicula1;
+    public javax.swing.JComboBox<String> boxGeneroIDPelicula;
+    public javax.swing.JComboBox<String> boxGeneroIDPelicula1;
+    public javax.swing.JComboBox<String> boxPeliculaIDComentario;
+    public javax.swing.JComboBox<String> boxPeliculaIDComentario1;
+    public javax.swing.JComboBox<String> boxPeliculaIDTransaccion;
+    public javax.swing.JComboBox<String> boxPeliculaIDTransaccion1;
     public javax.swing.JComboBox<String> boxTipoTransaccion;
     public javax.swing.JComboBox<String> boxTipoTransaccionEditable;
+    public javax.swing.JComboBox<String> boxUsuarioIDComentario;
+    public javax.swing.JComboBox<String> boxUsuarioIDComentario1;
+    public javax.swing.JComboBox<String> boxUsuarioIDTransaccion;
+    public javax.swing.JComboBox<String> boxUsuarioIDTransaccion1;
     private javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnActualizarComentario1;
     private javax.swing.JButton btnActualizarComentarios;
@@ -2365,34 +2548,22 @@ panelAuditoriaComentario.setVisible(false);
     public javax.swing.JTextArea txtComentarioEditable;
     public javax.swing.JTextArea txtComentarioEditable1;
     public javax.swing.JTextField txtCorreoUsuario1;
-    public javax.swing.JTextField txtDirectorID;
     public javax.swing.JTextField txtDirectorID1;
-    public javax.swing.JTextField txtDirectorIDEditable;
     public javax.swing.JTextField txtFechaComentario;
     public javax.swing.JTextField txtFechaNacimiento;
     public javax.swing.JTextField txtFechaRegistro;
     public javax.swing.JTextField txtFechaTransaccion;
-    public javax.swing.JTextField txtGeneroID;
     public javax.swing.JTextField txtGeneroID1;
-    public javax.swing.JTextField txtGeneroIDEditable;
     public javax.swing.JTextField txtNombreDirector;
     public javax.swing.JTextField txtNombreGenero1;
     public javax.swing.JTextField txtNombrePelicula1;
     public javax.swing.JTextField txtNombreUsuario1;
     public javax.swing.JTextField txtPaisOrigenDirector;
-    public javax.swing.JTextField txtPeliculaID;
-    public javax.swing.JTextField txtPeliculaIDEditable;
-    public javax.swing.JTextField txtPeliculaIDTransaccion;
-    public javax.swing.JTextField txtPeliculaIDTransaccion1;
     public javax.swing.JTextField txtPeliculasDirigidas;
     public javax.swing.JTextField txtPremios;
     public javax.swing.JTextArea txtSinopsisPelicula;
     public javax.swing.JTextArea txtSinopsisPelicula1;
     public javax.swing.JTextField txtTipoTransaccion1;
     public javax.swing.JTextField txtTituloPelicula;
-    public javax.swing.JTextField txtUsuarioID;
-    public javax.swing.JTextField txtUsuarioIDEditable;
-    public javax.swing.JTextField txtUsuarioIDTransaccion;
-    public javax.swing.JTextField txtUsuarioIDTransaccion1;
     // End of variables declaration//GEN-END:variables
 }

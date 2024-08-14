@@ -36,8 +36,8 @@ public class CtrComentarioReplica implements ActionListener {
 
         // Acción para el botón Guardar
         if (e.getSource() == frm.btnGuardarComentario) {
-            int usuarioID = Integer.parseInt(frm.txtUsuarioID.getText());
-            int peliculaID = Integer.parseInt(frm.txtPeliculaID.getText());
+            int usuarioID = Integer.parseInt((String) frm.boxUsuarioIDComentario.getSelectedItem());
+            int peliculaID = Integer.parseInt((String) frm.boxPeliculaIDComentario.getSelectedItem());
 
             DbUsuarioReplica usuarioDb = new DbUsuarioReplica();
             DbPeliculaReplica peliculaDb = new DbPeliculaReplica();
@@ -65,13 +65,11 @@ public class CtrComentarioReplica implements ActionListener {
 
         // Acción para el botón Buscar
         if (e.getSource() == frm.btnBuscarComentario) {
-            mod.setUsuarioID(Integer.parseInt(frm.txtUsuarioIDEditable.getText()));
-            mod.setPeliculaID(Integer.parseInt(frm.txtPeliculaIDEditable.getText()));
+            mod.setUsuarioID(Integer.parseInt((String) frm.boxUsuarioIDComentario1.getSelectedItem()));
+            mod.setPeliculaID(Integer.parseInt((String) frm.boxPeliculaIDComentario1.getSelectedItem()));
 
             if (modDb.buscar(mod)) {
                 frm.idComentario.setText(String.valueOf(mod.getComentarioID()));
-                frm.txtUsuarioIDEditable.setText(String.valueOf(mod.getUsuarioID()));
-                frm.txtPeliculaIDEditable.setText(String.valueOf(mod.getPeliculaID()));
                 frm.txtComentarioEditable.setText(mod.getComentario());
                 frm.txtFechaComentario.setText(String.valueOf(mod.getFechaComentario()));
 
@@ -85,8 +83,8 @@ public class CtrComentarioReplica implements ActionListener {
         // Acción para el botón Actualizar
         if (e.getSource() == frm.btnActualizarComentario1) {
             if (verificarBusqueda) {
-                int usuarioID = Integer.parseInt(frm.txtUsuarioIDEditable.getText());
-                int peliculaID = Integer.parseInt(frm.txtPeliculaIDEditable.getText());
+                int usuarioID = Integer.parseInt((String) frm.boxUsuarioIDComentario1.getSelectedItem());
+                int peliculaID = Integer.parseInt((String) frm.boxPeliculaIDComentario1.getSelectedItem());
 
                 DbUsuarioReplica usuarioDb = new DbUsuarioReplica();
                 DbPeliculaReplica peliculaDb = new DbPeliculaReplica();
@@ -136,15 +134,11 @@ public class CtrComentarioReplica implements ActionListener {
     }
 
     public void limpiar() {
-        frm.txtUsuarioID.setText(null);
-        frm.txtPeliculaID.setText(null);
         frm.txtComentario.setText(null);
     }
 
     public void limpiarActualizar() {
         frm.idComentario.setText(null);
-        frm.txtUsuarioIDEditable.setText(null);
-        frm.txtPeliculaIDEditable.setText(null);
         frm.txtComentarioEditable.setText(null);
         frm.txtComentarioEditable1.setText(null);
         frm.txtFechaComentario.setText(null);

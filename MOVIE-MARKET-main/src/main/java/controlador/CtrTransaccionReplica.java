@@ -37,8 +37,8 @@ public class CtrTransaccionReplica implements ActionListener {
 
         // Guardar
     if (e.getSource() == frm.btnGuardarTransaccion) {
-        int peliculaID = Integer.parseInt(frm.txtPeliculaIDTransaccion.getText());
-        int usuarioID = Integer.parseInt(frm.txtUsuarioIDTransaccion.getText());
+        int peliculaID = Integer.parseInt((String) frm.boxPeliculaIDTransaccion.getSelectedItem());
+        int usuarioID = Integer.parseInt((String) frm.boxUsuarioIDTransaccion.getSelectedItem());
 
         DbPeliculaReplica dbPelicula = new DbPeliculaReplica();
         DbUsuarioReplica dbUsuario = new DbUsuarioReplica();
@@ -50,6 +50,9 @@ public class CtrTransaccionReplica implements ActionListener {
 
             String item = frm.boxTipoTransaccion.getSelectedItem().toString();
             mod.setTipoTransaccion(item.equals("Compra") ? "compra" : item.equals("Alquiler") ? "alquiler" : "");
+            if(item.equals("Compra"))
+                JOptionPane.showMessageDialog(null, "No es posible añadir transacción tipo Compra");     
+            else{
 
             if (modDb.guardar(mod)) {
                 JOptionPane.showMessageDialog(null, "Transacción registrada");
@@ -57,7 +60,7 @@ public class CtrTransaccionReplica implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(null, "Error al registrar");
                 limpiar();
-            }
+            }}
         } else {
             JOptionPane.showMessageDialog(null, "Película o Usuario no existen");
         }
@@ -65,8 +68,8 @@ public class CtrTransaccionReplica implements ActionListener {
 
     // Buscar
     if (e.getSource() == frm.btnBuscarTransaccion) {
-        int peliculaID = Integer.parseInt(frm.txtPeliculaIDTransaccion1.getText());
-        int usuarioID = Integer.parseInt(frm.txtUsuarioIDTransaccion1.getText());
+        int peliculaID = Integer.parseInt((String) frm.boxPeliculaIDTransaccion1.getSelectedItem());
+        int usuarioID = Integer.parseInt((String) frm.boxUsuarioIDTransaccion1.getSelectedItem());
 
         // Verificar si la película y el usuario existen
         DbPeliculaReplica dbPelicula = new DbPeliculaReplica();
@@ -79,8 +82,6 @@ public class CtrTransaccionReplica implements ActionListener {
             if (modDb.buscar(mod)) {
                 // Mostrar los datos en los campos del formulario
                 frm.idTransaccion.setText(String.valueOf(mod.getTransaccionID())); // ID de la transacción
-                frm.txtUsuarioIDTransaccion1.setText(String.valueOf(mod.getUsuarioID()));
-                frm.txtPeliculaIDTransaccion1.setText(String.valueOf(mod.getPeliculaID()));
                 frm.txtTipoTransaccion1.setText(mod.getTipoTransaccion());
 
                 // Formatear la fecha para mostrar en el formulario
@@ -101,8 +102,8 @@ public class CtrTransaccionReplica implements ActionListener {
     // Actualizar
     if (e.getSource() == frm.btnActualizarTransaccion1) {
         if (verificarBusqueda) {
-            int peliculaID = Integer.parseInt(frm.txtPeliculaIDTransaccion1.getText());
-            int usuarioID = Integer.parseInt(frm.txtUsuarioIDTransaccion1.getText());
+            int peliculaID = Integer.parseInt((String) frm.boxPeliculaIDTransaccion1.getSelectedItem());
+            int usuarioID = Integer.parseInt((String) frm.boxUsuarioIDTransaccion1.getSelectedItem());
 
             DbPeliculaReplica dbPelicula = new DbPeliculaReplica();
             DbUsuarioReplica dbUsuario = new DbUsuarioReplica();
@@ -114,6 +115,12 @@ public class CtrTransaccionReplica implements ActionListener {
 
                 String item = frm.boxTipoTransaccionEditable.getSelectedItem().toString();
                 mod.setTipoTransaccion(item.equals("Compra") ? "compra" : item.equals("Alquiler") ? "alquiler" : "");
+                if(item.equals("Compra")){
+                    JOptionPane.showMessageDialog(null, "No es posible modificar transacción a tipo Compra");
+                    verificarBusqueda=false;
+                    limpiarActualizar();
+                }    
+                else{
 
                 if (modDb.modificar(mod)) {
                     JOptionPane.showMessageDialog(null, "Transacción actualizada");
@@ -122,6 +129,7 @@ public class CtrTransaccionReplica implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al actualizar");
                     limpiarActualizar();
+                }
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Película o Usuario no existen");
@@ -157,16 +165,10 @@ public class CtrTransaccionReplica implements ActionListener {
     }
 
     public void limpiar() {
-        frm.txtPeliculaIDTransaccion.setText(null);
-        frm.txtUsuarioIDTransaccion.setText(null);
-        frm.boxTipoTransaccion.setSelectedIndex(-1);
     }
 
     public void limpiarActualizar() {
-        frm.txtPeliculaIDTransaccion1.setText(null);
-        frm.txtUsuarioIDTransaccion1.setText(null);
         frm.txtTipoTransaccion1.setText(null);
-        frm.boxTipoTransaccionEditable.setSelectedIndex(-1);
         frm.txtFechaTransaccion.setText(null);
         frm.idTransaccion.setText(null);
     }

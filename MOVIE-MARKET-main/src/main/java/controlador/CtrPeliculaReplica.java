@@ -37,12 +37,14 @@ public class CtrPeliculaReplica implements ActionListener {
 
         // Acción para el botón Guardar
 if (e.getSource() == frm.btnGuardarPelicula) {
-    int directorID = Integer.parseInt(frm.txtDirectorID.getText());
-    int generoID = Integer.parseInt(frm.txtGeneroID.getText());
+    int directorID = Integer.parseInt((String) frm.boxDirectorIDPelicula.getSelectedItem());
+    int generoID = Integer.parseInt((String) frm.boxGeneroIDPelicula.getSelectedItem());
+    int anioLanzamiento = frm.anioLanzamiento.getYear();
 
     DbDirectorReplica directorDb = new DbDirectorReplica();
     DbGeneroReplica generoDb = new DbGeneroReplica();
-
+    
+    if (anioLanzamiento>=2000){
     if (!directorDb.exists(directorID)) {
         JOptionPane.showMessageDialog(null, "El Director no existe");
     } else if (!generoDb.exists(generoID)) {
@@ -63,6 +65,11 @@ if (e.getSource() == frm.btnGuardarPelicula) {
             limpiar();
         }
     }
+    }else{
+        JOptionPane.showMessageDialog(null, "No puede ingresar peliculas lanzadas despues de los 2000");
+        limpiar();
+    }
+    
 }
 
 
@@ -115,8 +122,8 @@ if (e.getSource() == frm.btnActualizarPelicula1) {
     if (verificarBusqueda) {
         // Obtener los valores de los campos
         String titulo = frm.txtNombrePelicula1.getText();
-        int directorID = Integer.parseInt(frm.txtDirectorIDEditable.getText());
-        int generoID = Integer.parseInt(frm.txtGeneroIDEditable.getText());
+        int directorID = Integer.parseInt((String) frm.boxDirectorIDPelicula1.getSelectedItem());
+        int generoID = Integer.parseInt((String) frm.boxGeneroIDPelicula1.getSelectedItem());
         int anoLanzamiento = frm.anioLanzamientoEditable.getYear();
         String sinopsis = frm.txtSinopsisPelicula1.getText();
 
@@ -178,9 +185,7 @@ if (e.getSource() == frm.btnActualizarPelicula1) {
 
     public void limpiar() {
         frm.txtTituloPelicula.setText(null);
-        frm.txtDirectorID.setText(null);
-        frm.txtGeneroID.setText(null);
-        frm.anioLanzamiento.setYear(0);
+        frm.anioLanzamiento.setYear(2024);
         frm.txtSinopsisPelicula.setText(null);
     }
 
@@ -190,8 +195,6 @@ if (e.getSource() == frm.btnActualizarPelicula1) {
         frm.txtGeneroID1.setText(null);
         frm.anioLanzamientoEditable.setYear(2024);
         frm.txtSinopsisPelicula1.setText(null);
-        frm.txtDirectorIDEditable.setText(null);
-        frm.txtGeneroIDEditable.setText(null);
         frm.txtAnioLanzamiento1.setText(null);
     }
 }

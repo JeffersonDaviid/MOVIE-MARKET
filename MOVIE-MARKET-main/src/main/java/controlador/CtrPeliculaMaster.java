@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import modelo.services.DbPeliculaMaster;
 import modelo.entities.Pelicula;
 import vista.FrmMenuMaster;
-import java.text.SimpleDateFormat;
 import modelo.services.DbDirectorMaster;
 import modelo.services.DbGeneroMaster;
 
@@ -37,17 +36,18 @@ public class CtrPeliculaMaster implements ActionListener {
 
         // Acción para el botón Guardar
 if (e.getSource() == frm.btnGuardarPelicula) {
-    int directorID = Integer.parseInt(frm.txtDirectorID.getText());
-    int generoID = Integer.parseInt(frm.txtGeneroID.getText());
+    int directorID = Integer.parseInt((String) frm.boxDirectorIDPelicula.getSelectedItem());
+    int generoID = Integer.parseInt((String) frm.boxGeneroIDPelicula.getSelectedItem());
+    int anioLanzamiento = frm.anioLanzamiento.getYear();
 
     DbDirectorMaster directorDb = new DbDirectorMaster();
     DbGeneroMaster generoDb = new DbGeneroMaster();
-
+    if (anioLanzamiento>=2000){
     if (!directorDb.exists(directorID)) {
         JOptionPane.showMessageDialog(null, "El Director no existe");
     } else if (!generoDb.exists(generoID)) {
         JOptionPane.showMessageDialog(null, "El Género no existe");
-    } else {
+    } else{
         // Si ambos existen, guardar la película
         mod.setTitulo(frm.txtTituloPelicula.getText());
         mod.setDirectorID(directorID);
@@ -62,6 +62,10 @@ if (e.getSource() == frm.btnGuardarPelicula) {
             JOptionPane.showMessageDialog(null, "Error al registrar");
             limpiar();
         }
+    }
+    }else{
+        JOptionPane.showMessageDialog(null, "No puede ingresar peliculas lanzadas antes de los 2000");
+        limpiar();
     }
 }
 
@@ -97,10 +101,14 @@ if (e.getSource() == frm.btnBuscarPelicula) {
         // Si ambos existen, actualizar los campos del formulario
         frm.idPelicula.setText(String.valueOf(mod.getPeliculaID()));
         frm.txtNombrePelicula1.setText(mod.getTitulo());
-        frm.txtDirectorID1.setText(String.valueOf(directorID));
-        frm.txtGeneroID1.setText(String.valueOf(generoID));
+        frm.txtDirectorIDPelicula.setText(String.valueOf(mod.getDirectorID()));
+        frm.txtGeneroIDPelicula.setText(String.valueOf(mod.getGeneroID()));
         frm.txtAnioLanzamiento1.setText(String.valueOf(mod.getAnoLanzamiento()));
         frm.txtSinopsisPelicula1.setText(mod.getSinopsis());
+        
+        // Forzar la actualización de los JComboBox
+        frm.boxDirectorIDPelicula.repaint();
+        frm.boxGeneroIDPelicula.repaint();
 
         verificarBusqueda = true;
     } else {
@@ -115,8 +123,8 @@ if (e.getSource() == frm.btnActualizarPelicula1) {
     if (verificarBusqueda) {
         // Obtener los valores de los campos
         String titulo = frm.txtNombrePelicula1.getText();
-        int directorID = Integer.parseInt(frm.txtDirectorIDEditable.getText());
-        int generoID = Integer.parseInt(frm.txtGeneroIDEditable.getText());
+        int directorID = Integer.parseInt((String) frm.boxDirectorIDPelicula1.getSelectedItem());
+        int generoID = Integer.parseInt((String) frm.boxGeneroIDPelicula1.getSelectedItem());
         int anoLanzamiento = frm.anioLanzamientoEditable.getYear();
         String sinopsis = frm.txtSinopsisPelicula1.getText();
 
@@ -178,21 +186,17 @@ if (e.getSource() == frm.btnActualizarPelicula1) {
 
     public void limpiar() {
         frm.txtTituloPelicula.setText(null);
-        frm.txtDirectorID.setText(null);
-        frm.txtGeneroID.setText(null);
-        frm.anioLanzamiento.setYear(0);
+        frm.anioLanzamiento.setYear(2024);
         frm.txtSinopsisPelicula.setText(null);
     }
 
     public void limpiarActualizar() {
         frm.txtNombrePelicula1.setText(null);
-        frm.txtDirectorID1.setText(null);
-        frm.txtGeneroID1.setText(null);
         frm.anioLanzamientoEditable.setYear(2024);
         frm.txtSinopsisPelicula1.setText(null);
+        frm.txtGeneroIDPelicula.setText(null);
+        frm.txtDirectorIDPelicula.setText(null);
         frm.txtID.setText(null);
-        frm.txtDirectorIDEditable.setText(null);
-        frm.txtGeneroIDEditable.setText(null);
         frm.txtAnioLanzamiento1.setText(null);
     }
 }
