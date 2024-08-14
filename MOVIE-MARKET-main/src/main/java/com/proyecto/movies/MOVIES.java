@@ -70,11 +70,13 @@ public class MOVIES {
                 
                 // Verificar el inicio de sesión
                 if (usuario.equals(USUARIO_MASTER) && contrasena.equals(CONTRASENA_MASTER)) {
+                    JOptionPane.showMessageDialog(frmInicioSesion, "Inicio de sesión exitoso como MASTER");
                     // Abre la ventana para el usuario MASTER
                     frmInicioSesion.setVisible(false);
                     abrirVentanaMaster();
                     
                 } else if (usuario.equals(USUARIO_REPLICA) && contrasena.equals(CONTRASENA_REPLICA)) {
+                    JOptionPane.showMessageDialog(frmInicioSesion, "Inicio de sesión exitoso como REPLICA");
                     frmInicioSesion.setVisible(false);
                     abrirVentanaReplica();
                     
