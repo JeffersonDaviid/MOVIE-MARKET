@@ -44,7 +44,7 @@ if (e.getSource() == frm.btnGuardarPelicula) {
     DbDirectorReplica directorDb = new DbDirectorReplica();
     DbGeneroReplica generoDb = new DbGeneroReplica();
     
-    if (anioLanzamiento>=2000){
+    if (anioLanzamiento<2000){
     if (!directorDb.exists(directorID)) {
         JOptionPane.showMessageDialog(null, "El Director no existe");
     } else if (!generoDb.exists(generoID)) {
