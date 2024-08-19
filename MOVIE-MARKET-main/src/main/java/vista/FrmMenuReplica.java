@@ -1865,6 +1865,8 @@ public class FrmMenuReplica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnListarActionPerformed
+        
+        
         panelActualizar.setVisible(false);
         panelListar.setVisible(true);
 
@@ -2037,6 +2039,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
     private void btnListarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnListarPeliculaActionPerformed
         actualizarComboBoxDirectores();
         actualizarComboBoxGeneros();
+        
         panelAgregarPelicula.setVisible(false);
         panelActualizarPelicula.setVisible(false);
         panelListarPelicula.setVisible(true);
@@ -2078,6 +2081,9 @@ public class FrmMenuReplica extends javax.swing.JFrame {
     }// GEN-LAST:event_btnListarPeliculaActionPerformed
 
     private void btnActualizarPeliculaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnActualizarPeliculaActionPerformed
+        actualizarComboBoxGeneros();
+        actualizarComboBoxDirectores();
+        
         panelAgregarPelicula.setVisible(false);
         panelActualizarPelicula.setVisible(true);
         panelListarPelicula.setVisible(false);
@@ -2133,6 +2139,9 @@ public class FrmMenuReplica extends javax.swing.JFrame {
     }// GEN-LAST:event_btnEliminarComentarioActionPerformed
 
     private void btnAgregarComentariosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAgregarComentariosActionPerformed
+        actualizarComboBoxPeliculas();
+        actualizarComboBoxUsuarios();
+        
         panelAgregarComentario.setVisible(true);
         panelActualizarComentario.setVisible(false);
         panelListarComentario.setVisible(false);
@@ -2180,6 +2189,9 @@ public class FrmMenuReplica extends javax.swing.JFrame {
     }// GEN-LAST:event_btnListarComentariosActionPerformed
 
     private void btnActualizarComentariosActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnActualizarComentariosActionPerformed
+        actualizarComboBoxPeliculas();
+        actualizarComboBoxUsuarios();
+        
         panelAgregarComentario.setVisible(false);
         panelActualizarComentario.setVisible(true);
         panelListarComentario.setVisible(false);
@@ -2235,6 +2247,9 @@ public class FrmMenuReplica extends javax.swing.JFrame {
     }// GEN-LAST:event_btnEliminarTransaccionActionPerformed
 
     private void btnAgregarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAgregarTransaccionActionPerformed
+        actualizarComboBoxPeliculas();
+        actualizarComboBoxUsuarios();
+        
         panelAgregarTransaccion.setVisible(true);
         panelActualizarTransaccion.setVisible(false);
         panelListarTransaccion.setVisible(false);
@@ -2281,6 +2296,9 @@ public class FrmMenuReplica extends javax.swing.JFrame {
     }// GEN-LAST:event_btnListarTransaccionActionPerformed
 
     private void btnActualizarTransaccionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnActualizarTransaccionActionPerformed
+        actualizarComboBoxPeliculas();
+        actualizarComboBoxUsuarios();
+        
         panelAgregarTransaccion.setVisible(false);
         panelActualizarTransaccion.setVisible(true);
         panelListarTransaccion.setVisible(false);
@@ -2369,10 +2387,11 @@ public class FrmMenuReplica extends javax.swing.JFrame {
 
         // Ahora actualiza el modelo del JComboBox
         boxDirectorIDPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(directorIDs));
+        boxDirectorIDPelicula1.setModel(new javax.swing.DefaultComboBoxModel<>(directorIDs));
     }
 
     private void actualizarComboBoxGeneros() {
-        DbGeneroMaster db3 = new DbGeneroMaster();
+        DbGeneroReplica db3 = new DbGeneroReplica();
         List<Genero> generos = db3.listar();
 
         // Crear un arreglo para almacenar todos los PeliculaID
@@ -2384,6 +2403,49 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             generoIDs[index4++] = g.getGeneroID() + "";
         }
         boxGeneroIDPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(generoIDs));
+        boxGeneroIDPelicula1.setModel(new javax.swing.DefaultComboBoxModel<>(generoIDs));
+
+    }
+    
+        private void actualizarComboBoxPeliculas() {
+        // Obtener los datos de la base de datos
+        DbPeliculaReplica dbr = new DbPeliculaReplica();
+        List<Pelicula> peliculas = dbr.listar();
+
+        // Crear un arreglo para almacenar todos los PeliculaID
+        String[] peliculaIDs = new String[peliculas.size()];
+
+        // Llenar el arreglo con los datos de PeliculaID
+        int index1 = 0;
+        for (Pelicula t : peliculas) {
+            peliculaIDs[index1++] = String.valueOf(t.getPeliculaID());
+        }
+
+        // Ahora tienes todos los PeliculaID en el arreglo 'peliculaIDs'
+        boxPeliculaIDComentario.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+        boxPeliculaIDComentario1.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+        boxPeliculaIDTransaccion.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+        boxPeliculaIDTransaccion1.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+
+    }
+        
+            private void actualizarComboBoxUsuarios() {
+        // Obtener los datos de la base de datos
+        DbUsuarioReplica dbu = new DbUsuarioReplica();
+        List<Usuario> usuarios = dbu.listar();
+
+        // Crear un arreglo para almacenar todos los PeliculaID
+        String[] usuarioIDs = new String[usuarios.size()];
+
+        // Llenar el arreglo con los datos de PeliculaID
+        int index2 = 0;
+        for (Usuario t : usuarios) {
+            usuarioIDs[index2++] = String.valueOf(t.getUsuarioID());
+        }
+        boxUsuarioIDComentario.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));
+        boxUsuarioIDComentario1.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));
+        boxUsuarioIDTransaccion.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));
+        boxUsuarioIDTransaccion1.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));
 
     }
 
