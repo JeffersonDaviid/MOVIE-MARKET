@@ -2190,6 +2190,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
 
         // Llenar el modelo con los datos
         for (Director d : directores) {
+                System.out.println(d.getDirectorID() + " " + d.getNombre());
             model.addRow(new Object[] {
                     d.getDirectorID(),
                     d.getNombre(),
