@@ -140,14 +140,10 @@ public class CtrTransaccionReplica implements ActionListener {
     }
 
     // Eliminar
+    // Eliminar
     if (e.getSource() == frm.btnEliminarTransaccion) {
         if (verificarBusqueda) {
-            int peliculaID = Integer.parseInt(frm.idTransaccion.getText());
-
-            DbPeliculaReplica dbPelicula = new DbPeliculaReplica();
-            DbUsuarioReplica dbUsuario = new DbUsuarioReplica();
-
-            if (dbPelicula.exists(peliculaID) && dbUsuario.exists(mod.getUsuarioID())) {
+            mod.setTransaccionID(Integer.parseInt(frm.idTransaccion.getText()));
                 if (modDb.eliminar(mod)) {
                     JOptionPane.showMessageDialog(null, "Transacción eliminada");
                     limpiarActualizar();
@@ -155,9 +151,7 @@ public class CtrTransaccionReplica implements ActionListener {
                     JOptionPane.showMessageDialog(null, "Error al eliminar");
                     limpiarActualizar();
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Película o Usuario no existen");
-            }
+
         } else {
             JOptionPane.showMessageDialog(null, "No se realizó una búsqueda antes de la eliminación");
         }
