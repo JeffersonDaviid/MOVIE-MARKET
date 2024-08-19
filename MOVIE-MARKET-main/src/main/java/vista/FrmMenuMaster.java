@@ -3001,6 +3001,7 @@ public class FrmMenuMaster extends javax.swing.JFrame {
             generoIDs[index4++] = g.getGeneroID() + "";
         }
         boxGeneroIDPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(generoIDs));
+        boxGeneroIDPelicula1.setModel(new javax.swing.DefaultComboBoxModel<>(generoIDs));
 
     }
 
@@ -3021,6 +3022,7 @@ public class FrmMenuMaster extends javax.swing.JFrame {
 
         // Ahora actualiza el modelo del JComboBox
         boxDirectorIDPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(directorIDs));
+        boxDirectorIDPelicula1.setModel(new javax.swing.DefaultComboBoxModel<>(directorIDs));
     }
 
     private void actualizarComboBoxPeliculas() {
@@ -3039,6 +3041,9 @@ public class FrmMenuMaster extends javax.swing.JFrame {
 
         // Ahora tienes todos los PeliculaID en el arreglo 'peliculaIDs'
         boxPeliculaIDComentario.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+        boxPeliculaIDComentario1.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+        boxPeliculaIDTransaccion.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
+        boxPeliculaIDTransaccion1.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
 
     }
 
@@ -3055,7 +3060,11 @@ public class FrmMenuMaster extends javax.swing.JFrame {
         for (Usuario t : usuarios) {
             usuarioIDs[index2++] = String.valueOf(t.getUsuarioID());
         }
-        boxUsuarioIDComentario.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));
+
+        boxUsuarioIDComentario.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));;
+        boxUsuarioIDComentario1.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));;
+        boxUsuarioIDTransaccion.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));;
+        boxUsuarioIDTransaccion1.setModel(new javax.swing.DefaultComboBoxModel<>(usuarioIDs));;
 
     }
 
