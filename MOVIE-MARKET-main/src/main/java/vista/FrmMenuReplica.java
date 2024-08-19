@@ -1647,7 +1647,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
             }
         });
 
-        boxTipoTransaccionEditable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compra" }));
+        boxTipoTransaccionEditable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compra" , "Alquiler"}));
 
         boxPeliculaIDTransaccion1.setModel(new javax.swing.DefaultComboBoxModel<>(peliculaIDs));
 
