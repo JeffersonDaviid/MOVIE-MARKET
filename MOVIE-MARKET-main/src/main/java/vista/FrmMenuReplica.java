@@ -18,9 +18,7 @@ import modelo.entities.Transaccion;
 import modelo.entities.TransaccionAuditoria;
 import modelo.entities.Usuario;
 import modelo.services.DbComentarioReplica;
-import modelo.services.DbDirectorMaster;
 import modelo.services.DbDirectorReplica;
-import modelo.services.DbGeneroMaster;
 import modelo.services.DbGeneroReplica;
 import modelo.services.DbPeliculaReplica;
 import modelo.services.DbTransaccionReplica;
@@ -2372,7 +2370,7 @@ public class FrmMenuReplica extends javax.swing.JFrame {
 
     private void actualizarComboBoxDirectores() {
         // Obtener los datos de la base de datos
-        DbDirectorMaster db6 = new DbDirectorMaster();
+        DbDirectorReplica db6 = new DbDirectorReplica();
         List<Director> directores = db6.listar();
 
         // Crear un arreglo para almacenar todos los nombres y apellidos de los
